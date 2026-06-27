@@ -1,0 +1,276 @@
+openapi: 3.1.0
+info:
+  title: SIGFA - Agente Consultor
+  description: >
+    API para conectar o agente consultor SIGFA do ChatGPT ao Sistema Integrado
+    de Gestao Foco Amplo. Permite consultar o status do sistema, enviar perguntas,
+    solicitar diagnosticos e registrar textos enviados por clientes.
+  version: 1.0.0
+servers:
+  - url: https://api.focoamplo.com.br
+    description: API publica de producao do SIGFA
+paths:
+  /health:
+    get:
+      operationId: verificarSaudeApi
+      summary: Verificar se a API SIGFA esta online
+      description: Retorna o status basico da API.
+      tags:
+        - Sistema
+      responses:
+        "200":
+          description: API online
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  app:
+                    type: string
+                    example: SIGFA
+                  version:
+                    type: string
+                    example: 1.0.0
+  /auth/me:
+    get:
+      operationId: validarChaveAcessoSigfa
+      summary: Validar a chave de acesso da API
+      description: Confirma se a API Key configurada no agente esta valida.
+      tags:
+        - Autenticacao
+      security:
+        - SigfaApiKey: []
+      responses:
+        "200":
+          description: Chave validada com sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: autenticado
+                  app:
+                    type: string
+                    example: SIGFA
+                  auth:
+                    type: string
+                    example: api-key
+        "401":
+          description: API Key invalida ou ausente
+  /sigfa/status:
+    get:
+      operationId: consultarStatusSigfa
+      summary: Consultar status do SIGFA
+      description: Verifica se o SIGFA Engine esta online e se a base de conhecimento foi encontrada.
+      tags:
+        - SIGFA
+      responses:
+        "200":
+          description: Status atual do SIGFA
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  engine:
+                    type: string
+                    example: online
+                  knowledge_base_found:
+                    type: boolean
+                    example: true
+                  knowledge_dir:
+                    type: string
+                    example: C:\Users\User\Desktop\SIGFA\14_CONHECIMENTO
+  /sigfa/pergunta:
+    post:
+      operationId: perguntarAoSigfa
+      summary: Enviar pergunta ao SIGFA
+      description: Envia uma pergunta do agente consultor para o SIGFA Engine.
+      tags:
+        - SIGFA
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PerguntaRequest"
+      responses:
+        "200":
+          description: Resposta do SIGFA
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PerguntaResponse"
+  /sigfa/diagnostico:
+    post:
+      operationId: solicitarDiagnosticoSigfa
+      summary: Solicitar diagnostico SIGFA
+      description: Envia dados estruturados para iniciar uma analise ou diagnostico pelo SIGFA.
+      tags:
+        - SIGFA
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              properties:
+                empresa:
+                  type: string
+                  example: Empresa Exemplo
+                area:
+                  type: string
+                  example: Operacoes
+                problema:
+                  type: string
+                  example: Estoque elevado
+                evidencias:
+                  type: array
+                  items:
+                    type: string
+                  example:
+                    - Estoque acima da capacidade operacional
+                    - Giro abaixo da meta
+      responses:
+        "200":
+          description: Solicitacao de diagnostico recebida
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /cliente/acesso/solicitar:
+    post:
+      operationId: solicitarAcessoClienteSigfa
+      summary: Solicitar acesso de cliente ao SIGFA
+      description: Registra uma solicitacao publica de acesso ao Portal do Cliente SIGFA.
+      tags:
+        - Portal do Cliente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AcessoClienteRequest"
+      responses:
+        "200":
+          description: Solicitacao registrada
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /cliente/envios/texto:
+    post:
+      operationId: enviarTextoClienteSigfa
+      summary: Enviar texto ou relato de cliente para o SIGFA
+      description: Registra um texto, relato, evidencia ou observacao operacional para processamento pelo SIGFA.
+      tags:
+        - Portal do Cliente
+      security:
+        - SigfaApiKey: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TextoClienteRequest"
+      responses:
+        "200":
+          description: Texto recebido
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        "401":
+          description: API Key invalida ou ausente
+components:
+  securitySchemes:
+    SigfaApiKey:
+      type: apiKey
+      in: header
+      name: X-SIGFA-API-Key
+      description: Chave de acesso da API SIGFA.
+  schemas:
+    PerguntaRequest:
+      type: object
+      required:
+        - pergunta
+      properties:
+        pergunta:
+          type: string
+          minLength: 1
+          description: Pergunta enviada pelo agente consultor ao SIGFA.
+          example: Quais problemas podem explicar estoque acima da capacidade operacional?
+        contexto:
+          type: object
+          nullable: true
+          additionalProperties: true
+          description: Contexto opcional, como empresa, area, processo, periodo ou evidencias.
+          example:
+            empresa: Empresa Exemplo
+            area: Operacoes
+            processo: Gestao de estoque
+    PerguntaResponse:
+      type: object
+      properties:
+        pergunta:
+          type: string
+        resposta:
+          type: string
+        fonte:
+          type: string
+    AcessoClienteRequest:
+      type: object
+      required:
+        - nome
+        - email
+        - empresa
+      properties:
+        nome:
+          type: string
+          minLength: 2
+          example: Maria Silva
+        email:
+          type: string
+          minLength: 5
+          example: maria@empresa.com.br
+        empresa:
+          type: string
+          minLength: 2
+          example: Empresa Exemplo
+        mensagem:
+          type: string
+          nullable: true
+          example: Quero enviar documentos para diagnostico SIGFA.
+    TextoClienteRequest:
+      type: object
+      required:
+        - empresa
+        - contato
+        - titulo
+        - conteudo
+      properties:
+        empresa:
+          type: string
+          minLength: 2
+          example: Empresa Exemplo
+        contato:
+          type: string
+          minLength: 2
+          example: Maria Silva
+        titulo:
+          type: string
+          minLength: 2
+          example: Relato operacional
+        conteudo:
+          type: string
+          minLength: 1
+          example: Estamos com estoque acima da capacidade operacional e giro abaixo da meta.

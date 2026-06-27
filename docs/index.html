@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="SIGFA - Sistema Integrado de Gestao Foco Amplo. Plataforma para organizar conhecimento, diagnosticos, indicadores e processos de gestao empresarial."
+    />
+    <title>SIGFA | Sistema Integrado de Gestao Foco Amplo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Navegacao principal">
+        <a class="brand" href="#inicio" aria-label="Foco Amplo SIGFA">
+          <span class="brand-mark">FA</span>
+          <span>
+            <strong>Foco Amplo</strong>
+            <small>SIGFA</small>
+          </span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#sistema">Sistema</a>
+          <a href="#modulos">Modulos</a>
+          <a href="#portal">Portal</a>
+          <a href="#agente">Agente IA</a>
+          <a class="nav-cta" href="#portal">Entrar</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="inicio" class="hero section">
+        <div class="hero-content">
+          <p class="eyebrow">Sistema Integrado de Gestao</p>
+          <h1>Gestao empresarial com estrutura, inteligencia e foco em decisao.</h1>
+          <p class="hero-text">
+            O SIGFA organiza conhecimento, processos, indicadores e diagnosticos em uma
+            plataforma preparada para apoiar empresas com mais clareza operacional e
+            capacidade analitica.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#portal">Acessar portal do cliente</a>
+            <a class="button button-secondary" href="#modulos">Ver arquitetura</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Resumo da plataforma SIGFA">
+          <div class="card-status">
+            <span class="status-dot"></span>
+            Plataforma em estruturacao
+          </div>
+          <h2>SIGFA Engine</h2>
+          <p>
+            Motor de conhecimento conectado a bases, diagnosticos e fluxos de gestao.
+          </p>
+          <dl>
+            <div>
+              <dt>Base</dt>
+              <dd>14_CONHECIMENTO</dd>
+            </div>
+            <div>
+              <dt>API</dt>
+              <dd>Preparada para clientes e ChatGPT</dd>
+            </div>
+            <div>
+              <dt>Repositorio</dt>
+              <dd>FocoAmplo/SIGFA</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section id="portal" class="section portal">
+        <div class="section-heading">
+          <p class="eyebrow">Portal do Cliente</p>
+          <h2>Entrada segura para dados, documentos e diagnosticos.</h2>
+          <p>
+            O cliente pode solicitar acesso, enviar textos, planilhas, PDFs,
+            evidencias, imagens e demais arquivos que alimentam o processo de leitura,
+            analise e devolutiva gerencial do SIGFA.
+          </p>
+        </div>
+
+        <div class="portal-grid">
+          <form class="portal-card" id="access-form">
+            <span class="portal-label">Acesso do cliente</span>
+            <h3>Solicitar acesso ao SIGFA</h3>
+            <label>
+              Nome
+              <input type="text" name="nome" placeholder="Maria Silva" required />
+            </label>
+            <label>
+              E-mail corporativo
+              <input type="email" name="email" placeholder="cliente@empresa.com.br" required />
+            </label>
+            <label>
+              Empresa
+              <input type="text" name="empresa" placeholder="Empresa Exemplo" required />
+            </label>
+            <label>
+              Mensagem
+              <textarea name="mensagem" placeholder="Conte brevemente o que deseja analisar no SIGFA."></textarea>
+            </label>
+            <button class="button button-primary" type="submit">Solicitar acesso seguro</button>
+            <small>A equipe Foco Amplo valida o cadastro e libera a chave de acesso.</small>
+            <p class="form-status" id="access-status" aria-live="polite"></p>
+          </form>
+
+          <form class="portal-card" id="text-form">
+            <span class="portal-label">Envio de informacoes</span>
+            <h3>Enviar relato ou texto</h3>
+            <label>
+              Chave de acesso
+              <input type="password" name="apiKey" placeholder="X-SIGFA-API-Key" required />
+            </label>
+            <label>
+              Empresa
+              <input type="text" name="empresa" placeholder="Empresa Exemplo" required />
+            </label>
+            <label>
+              Contato
+              <input type="text" name="contato" placeholder="Maria Silva" required />
+            </label>
+            <label>
+              Titulo
+              <input type="text" name="titulo" placeholder="Problema operacional" required />
+            </label>
+            <label>
+              Conteudo
+              <textarea name="conteudo" placeholder="Descreva o cenario, sintomas, dados ou evidencias." required></textarea>
+            </label>
+            <button class="button button-primary" type="submit">Enviar texto para analise</button>
+            <p class="form-status" id="text-status" aria-live="polite"></p>
+          </form>
+
+          <form class="portal-card" id="file-form">
+            <span class="portal-label">Upload de documentos</span>
+            <h3>Enviar arquivo</h3>
+            <label>
+              Chave de acesso
+              <input type="password" name="apiKey" placeholder="X-SIGFA-API-Key" required />
+            </label>
+            <label>
+              Empresa
+              <input type="text" name="empresa" placeholder="Empresa Exemplo" required />
+            </label>
+            <label>
+              Contato
+              <input type="text" name="contato" placeholder="Maria Silva" required />
+            </label>
+            <label>
+              Descricao
+              <textarea name="descricao" placeholder="Descreva o arquivo enviado."></textarea>
+            </label>
+            <label>
+              Arquivo
+              <input
+                type="file"
+                name="arquivo"
+                accept=".csv,.doc,.docx,.jpeg,.jpg,.pdf,.png,.txt,.xls,.xlsx"
+                required
+              />
+            </label>
+            <button class="button button-primary" type="submit">Enviar arquivo para o SIGFA</button>
+            <p class="form-status" id="file-status" aria-live="polite"></p>
+          </form>
+
+          <div class="portal-card report-card">
+            <span class="portal-label">Fluxo de processamento</span>
+            <h3>Do envio ao relatorio</h3>
+            <p>
+              Os dados recebidos entram na base operacional do SIGFA para leitura,
+              classificacao, diagnostico, graficos e relatorios executivos.
+            </p>
+            <ul class="check-list">
+              <li>Textos e observacoes operacionais</li>
+              <li>PDFs, planilhas e documentos</li>
+              <li>Evidencias para diagnostico</li>
+              <li>Base para graficos e relatorios</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="sistema" class="section split">
+        <div>
+          <p class="eyebrow">Por que o SIGFA existe</p>
+          <h2>Uma camada inteligente para transformar informacao em gestao.</h2>
+        </div>
+        <p>
+          O SIGFA foi desenhado para consolidar documentos, diagnosticos,
+          indicadores, relatorios e processos em uma estrutura unica. A proposta e
+          reduzir dispersao, acelerar analises e apoiar decisoes com evidencias.
+        </p>
+      </section>
+
+      <section id="modulos" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Arquitetura</p>
+          <h2>Modulos preparados para crescer com a operacao.</h2>
+        </div>
+
+        <div class="module-grid">
+          <article class="module-card">
+            <span>01</span>
+            <h3>Governanca</h3>
+            <p>Diretrizes, arquitetura da plataforma, padroes e documentacao mestre.</p>
+          </article>
+          <article class="module-card">
+            <span>02</span>
+            <h3>Conhecimento</h3>
+            <p>Banco de conhecimento, taxonomia, ontologia, sintomas, problemas e evidencias.</p>
+          </article>
+          <article class="module-card">
+            <span>03</span>
+            <h3>Diagnosticos</h3>
+            <p>Fluxos para analisar cenarios, mapear causas e orientar recomendacoes.</p>
+          </article>
+          <article class="module-card">
+            <span>04</span>
+            <h3>Indicadores</h3>
+            <p>Metrificacao de desempenho e acompanhamento gerencial por area ou processo.</p>
+          </article>
+          <article class="module-card">
+            <span>05</span>
+            <h3>Automacoes</h3>
+            <p>Integracoes futuras com APIs, rotinas, relatorios e agentes inteligentes.</p>
+          </article>
+          <article class="module-card">
+            <span>06</span>
+            <h3>Engine</h3>
+            <p>Camada tecnica que conecta a base de conhecimento ao agente SIGFA.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="agente" class="section agent-panel">
+        <div>
+          <p class="eyebrow">Agente ChatGPT</p>
+          <h2>Um agente preparado para conversar com o sistema.</h2>
+          <p>
+            A API do SIGFA esta sendo preparada para permitir que o agente consulte
+            status, envie perguntas, solicite diagnosticos e utilize a base de
+            conhecimento da plataforma.
+          </p>
+        </div>
+
+        <a
+          class="button button-primary"
+          href="https://chatgpt.com/g/g-6a36bcf6c4e88191b09784714a2e7fec-sigfa-sistema-integrado-de-gestao-foco-amplo"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Abrir agente SIGFA
+        </a>
+      </section>
+
+      <section id="contato" class="section contact">
+        <p class="eyebrow">Proxima etapa</p>
+        <h2>Publicar, conectar o dominio e evoluir a experiencia.</h2>
+        <p>
+          Esta pagina esta pronta para GitHub Pages. Depois da publicacao, o dominio
+          <strong>focoamplo.com.br</strong> podera apontar para esta presenca publica.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Foco Amplo - SIGFA - Sistema Integrado de Gestao Foco Amplo</p>
+      <a href="#inicio">Voltar ao topo</a>
+    </footer>
+    <script src="./app.js"></script>
+  </body>
+</html>
