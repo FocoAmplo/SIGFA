@@ -1,0 +1,1 @@
+"""SIGFA backend app package."""

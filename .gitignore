@@ -1,0 +1,1 @@
+# Python cache\n__pycache__/\n*.py[cod]\n*$py.class\n# Virtual environment\n.venv/\n# Environment variables\n.env\n# IDE metadata\n.vscode/\n

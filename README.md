@@ -1,0 +1,1 @@
+# SIGFA Platform\n\nProjeto reorganizado para arquitetura corporativa.\n\n## Estrutura principal\n- backend/\n- frontend/\n- engine/\n- knowledge/\n- database/\n- docs/\n- scripts/\n- tests/\n\n## Como iniciar o backend\n\n```powershell\ncd c:\\Users\\User\\Desktop\\SIGFA\n.venv\\Scripts\\python.exe -m uvicorn backend.app.main:app --reload --port 8000\n```\n
