@@ -1,3 +1,3 @@
 """API package placeholder."""
 
-from . import routes  # noqa: F401
+from . import auth  # noqa: F401

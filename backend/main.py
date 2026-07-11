@@ -1,1 +1,4 @@
-from backend.app.main import app\n
+from backend.app.main import app
+
+__all__ = ["app"]
+
