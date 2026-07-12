@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 
 from ..database.session import get_db
 from ..models.user import User
-from ..schemas.user import UserRead
+from ..schemas.user import UserResponse
 from .jwt_handler import decode_access_token
 
 security = HTTPBearer()
@@ -14,7 +14,7 @@ def get_current_user(
     request: Request,
     db: Session = Depends(get_db),
     credentials: HTTPAuthorizationCredentials = Depends(security),
-) -> UserRead:
+) -> UserResponse:
 
     payload = getattr(request.state, "user_payload", None)
 
@@ -29,39 +29,34 @@ def get_current_user(
         .first()
     )
 
-    if user is None or not user.ativo:
+    if user is None or not user.active:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Usuário inválido",
         )
 
-    permissions = []
-
-    if user.role:
-        permissions = [
-            permission.chave
-            for permission in user.role.permissions
-        ]
-
-    return UserRead(
+    return UserResponse(
         id=user.id,
-        nome=user.nome,
+        uuid=user.uuid,
+        company_id=user.company_id,
+        profile_id=user.profile_id,
+        name=user.name,
         email=user.email,
-        role=user.role.nome if user.role else "",
-        permissions=permissions,
-        empresa_id=user.empresa_id,
-        ativo=user.ativo,
-        ultimo_login=user.ultimo_login,
+        phone=user.phone,
+        avatar=user.avatar,
+        active=user.active,
+        last_login=user.last_login,
         created_at=user.created_at,
+        updated_at=user.updated_at,
     )
 
 
 def require_permission(permission: str):
     def dependency(
-        current_user: UserRead = Depends(get_current_user),
-    ) -> UserRead:
+        current_user: UserResponse = Depends(get_current_user),
+    ) -> UserResponse:
 
-        if permission not in current_user.permissions:
+        if permission not in getattr(current_user, "permissions", []):
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
                 detail="Permissão insuficiente",

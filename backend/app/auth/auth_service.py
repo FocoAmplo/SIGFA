@@ -6,13 +6,9 @@ from fastapi import HTTPException, Request, status
 from sqlalchemy.orm import Session
 
 from ..auth.jwt_handler import create_access_token
-from ..auth.password import hash_password, verify_password
-from ..models.company import Company
+from ..auth.password import verify_password
 from ..models.login_audit import LoginAudit
-from ..models.permission import Permission
 from ..models.refresh_token import RefreshToken
-from ..models.role import Role, RoleType
-from ..models.session import UserSession
 from ..models.user import User
 
 
@@ -35,29 +31,26 @@ class AuthService:
             self._create_login_audit(db, None, email, False, audit_reason, request)
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Credenciais inválidas")
 
-        if not user.ativo:
+        if not user.active:
             audit_reason = "Usuário inativo"
             self._create_login_audit(db, user.id, email, False, audit_reason, request)
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Usuário inativo")
 
-        if not verify_password(senha, user.senha_hash):
+        if not verify_password(senha, user.password_hash):
             audit_reason = "Senha inválida"
             self._create_login_audit(db, user.id, email, False, audit_reason, request)
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Credenciais inválidas")
 
-        permissions = self._build_permissions(user)
         access_token = create_access_token(
             {
                 "sub": str(user.id),
                 "email": user.email,
-                "nome": user.nome,
-                "role": user.role.nome if user.role else "",
-                "empresa_id": user.empresa_id,
-                "permissions": permissions,
+                "name": user.name,
+                "company_id": user.company_id,
             }
         )
         refresh_token = self._create_refresh_token(db, user, request)
-        user.ultimo_login = datetime.utcnow()
+        user.last_login = datetime.utcnow()
         db.add(user)
         db.commit()
 
@@ -71,36 +64,28 @@ class AuthService:
         }
 
     def refresh_access_token(self, db: Session, refresh_token_value: str, request: Request) -> dict:
-        session = db.query(RefreshToken).filter(RefreshToken.token == refresh_token_value).first()
-        if session is None or session.revoked:
+        token_record = db.query(RefreshToken).filter(RefreshToken.token == refresh_token_value).first()
+        if token_record is None or token_record.revoked:
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Refresh token inválido")
 
-        if session.expires_at < datetime.utcnow():
+        if token_record.expires_at < datetime.utcnow():
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Refresh token expirado")
 
-        user = session.user
-        if user is None or not user.ativo:
+        user = token_record.user
+        if user is None or not user.active:
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Usuário inválido")
 
-        session.revoked = True
-        if session.user_session is not None:
-            session.user_session.revoked = True
-            session.user_session.last_active = datetime.utcnow()
-            db.add(session.user_session)
-
-        db.add(session)
+        token_record.revoked = True
+        db.add(token_record)
         db.commit()
 
         new_refresh_token = self._create_refresh_token(db, user, request)
-        permissions = self._build_permissions(user)
         access_token = create_access_token(
             {
                 "sub": str(user.id),
                 "email": user.email,
-                "nome": user.nome,
-                "role": user.role.nome if user.role else "",
-                "empresa_id": user.empresa_id,
-                "permissions": permissions,
+                "name": user.name,
+                "company_id": user.company_id,
             }
         )
 
@@ -111,16 +96,12 @@ class AuthService:
         }
 
     def logout_user(self, db: Session, refresh_token_value: str) -> None:
-        session = db.query(RefreshToken).filter(RefreshToken.token == refresh_token_value).first()
-        if session is None or session.revoked:
+        token_record = db.query(RefreshToken).filter(RefreshToken.token == refresh_token_value).first()
+        if token_record is None or token_record.revoked:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Refresh token não encontrado")
 
-        session.revoked = True
-        if session.user_session is not None:
-            session.user_session.revoked = True
-            db.add(session.user_session)
-
-        db.add(session)
+        token_record.revoked = True
+        db.add(token_record)
         db.commit()
 
     def _create_refresh_token(self, db: Session, user: User, request: Request) -> RefreshToken:
@@ -134,22 +115,6 @@ class AuthService:
         db.add(refresh_token)
         db.commit()
         db.refresh(refresh_token)
-
-        user_session = UserSession(
-            user_id=user.id,
-            refresh_token_id=refresh_token.id,
-            ip_address=request.client.host if request.client else None,
-            user_agent=request.headers.get("User-Agent", ""),
-        )
-        db.add(user_session)
-        db.commit()
-        db.refresh(user_session)
-
-        refresh_token.user_session = user_session
-        db.add(refresh_token)
-        db.commit()
-        db.refresh(refresh_token)
-
         return refresh_token
 
     def _create_login_audit(
@@ -171,8 +136,3 @@ class AuthService:
         )
         db.add(audit)
         db.commit()
-
-    def _build_permissions(self, user: User) -> list[str]:
-        if user.role and user.role.permissions:
-            return [permission.chave for permission in user.role.permissions]
-        return []

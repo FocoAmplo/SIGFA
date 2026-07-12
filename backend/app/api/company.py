@@ -16,7 +16,7 @@ from ..auth.dependencies import get_current_user
 from ..database.session import get_db
 from ..models.company import Company
 from ..models.document import Document
-from ..schemas.company import CompanyRead
+from ..schemas.company import CompanyResponse as CompanyRead
 from ..schemas.document import DocumentRead
 
 router = APIRouter(

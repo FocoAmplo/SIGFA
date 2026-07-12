@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 
 from sqlalchemy.orm import Session
 
-from .config import engine, SessionLocal
+from .session import SessionLocal
 from ..auth.password import hash_password
 from ..models.base import Base
 from ..models.company import Company

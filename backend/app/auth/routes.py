@@ -12,7 +12,7 @@ from ..schemas.external_login import ExternalLoginRequest
 from ..schemas.login import LoginRequest
 from ..schemas.refresh import RefreshResponse, RefreshTokenRequest
 from ..schemas.token import Token
-from ..schemas.user import UserRead
+from ..schemas.user import UserResponse
 
 router = APIRouter(tags=["auth"])
 
@@ -50,15 +50,15 @@ def refresh_token(
 @router.post("/logout")
 def logout(
     payload: RefreshTokenRequest,
-    current_user: UserRead = Depends(get_current_user),
+    current_user: UserResponse = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     auth_service.logout_user(db, payload.refresh_token)
     return JSONResponse({"detail": "Logout realizado com sucesso"})
 
 
-@router.get("/me", response_model=UserRead)
-def read_me(current_user: UserRead = Depends(get_current_user)):
+@router.get("/me", response_model=UserResponse)
+def read_me(current_user: UserResponse = Depends(get_current_user)):
     return current_user
 
 
@@ -68,5 +68,5 @@ def auth_status():
 
 
 @router.get("/permissions")
-def permissions(current_user: UserRead = Depends(require_permission("auth:read"))):
-    return {"permissions": current_user.permissions}
+def permissions(current_user: UserResponse = Depends(require_permission("auth:read"))):
+    return {"permissions": getattr(current_user, "permissions", [])}
