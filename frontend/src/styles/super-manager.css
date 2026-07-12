@@ -1,0 +1,248 @@
+.intel-platform {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.intel-chat-shell {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+    min-height: 72vh;
+}
+
+.intel-sidebar,
+.intel-chat-panel,
+.intel-response {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.025));
+    border: 1px solid var(--color-border);
+    border-radius: 24px;
+    box-shadow: var(--shadow-medium);
+}
+
+.intel-sidebar {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.intel-sidebar-header h2 {
+    margin: 8px 0 8px;
+    font-size: 1.2rem;
+}
+
+.intel-sidebar-header p {
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+.intel-metrics {
+    display: grid;
+    gap: 12px;
+}
+
+.intel-metric-card {
+    padding: 14px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.intel-metric-card span {
+    display: block;
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+}
+
+.intel-metric-card strong {
+    font-size: 1.2rem;
+    color: var(--color-primary-light);
+}
+
+.intel-metric-card small {
+    display: block;
+    margin-top: 4px;
+    color: var(--color-text-muted);
+}
+
+.intel-chat-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+    gap: 16px;
+}
+
+.intel-chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.intel-chat-header h1 {
+    margin-top: 6px;
+    font-size: clamp(1.35rem, 2vw, 1.8rem);
+}
+
+.intel-badge {
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--color-accent);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.intel-chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    min-height: 220px;
+}
+
+.message {
+    max-width: 90%;
+    padding: 14px 16px;
+    border-radius: 18px;
+    line-height: 1.6;
+    box-shadow: var(--shadow-small);
+}
+
+.message-assistant {
+    background: linear-gradient(135deg, rgba(15, 143, 77, 0.18), rgba(13, 31, 24, 0.85));
+    border: 1px solid rgba(15, 143, 77, 0.24);
+}
+
+.message strong {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.intel-chat-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.intel-chat-input-row {
+    display: flex;
+    gap: 12px;
+}
+
+.intel-chat-input-row textarea {
+    flex: 1;
+    min-height: 110px;
+    resize: vertical;
+    padding: 14px 16px;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--color-text);
+}
+
+.intel-upload-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.intel-upload {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px dashed var(--color-primary-light);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+}
+
+.intel-upload input {
+    display: none;
+}
+
+.intel-select {
+    padding: 10px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--color-text);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    color: white;
+    padding: 12px 16px;
+    border-radius: 14px;
+    box-shadow: var(--shadow-small);
+}
+
+.intel-response {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.intel-response-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.intel-response-status {
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+.intel-response-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 18px;
+}
+
+.intel-card {
+    padding: 16px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.intel-card--wide {
+    grid-column: span 2;
+}
+
+.intel-card h4 {
+    margin-bottom: 8px;
+}
+
+.intel-card ul {
+    padding-left: 18px;
+    display: grid;
+    gap: 8px;
+}
+
+@media (max-width: 900px) {
+    .intel-chat-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .intel-chat-input-row {
+        flex-direction: column;
+    }
+
+    .intel-response-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .intel-card--wide {
+        grid-column: auto;
+    }
+}

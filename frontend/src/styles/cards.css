@@ -1,0 +1,264 @@
+/* ==========================================================
+   SIGFA DESIGN SYSTEM
+   CARDS
+========================================================== */
+
+.sigfa-card {
+
+    background: var(--color-card);
+
+    border: 1px solid var(--color-border);
+
+    border-radius: 20px;
+
+    padding: 24px;
+
+    box-shadow: var(--shadow-small);
+
+    transition: all .30s ease;
+}
+
+.sigfa-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: var(--shadow-large);
+
+    border-color: var(--color-primary);
+}
+
+/* ============================================ */
+
+.sigfa-card-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+/* ============================================ */
+
+.sigfa-card-title {
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: var(--color-text);
+}
+
+/* ============================================ */
+
+.sigfa-card-subtitle {
+
+    color: var(--color-text-secondary);
+
+    font-size: 14px;
+
+    margin-top: 6px;
+}
+
+/* ============================================ */
+
+.sigfa-card-value {
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+    color: var(--color-primary-light);
+
+    margin: 18px 0;
+}
+
+/* ============================================ */
+
+.sigfa-card-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 20px;
+
+    color: var(--color-text-secondary);
+
+    font-size: 14px;
+}
+
+/* ============================================ */
+
+.sigfa-status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 14px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+/* ============================================ */
+
+.sigfa-status-success {
+
+    background: rgba(35, 197, 82, .15);
+
+    color: var(--color-success);
+}
+
+.sigfa-status-warning {
+
+    background: rgba(245, 165, 36, .15);
+
+    color: var(--color-warning);
+}
+
+.sigfa-status-danger {
+
+    background: rgba(240, 68, 56, .15);
+
+    color: var(--color-danger);
+}
+
+.sigfa-status-info {
+
+    background: rgba(31, 143, 255, .15);
+
+    color: var(--color-info);
+}
+
+/* ======================================================
+   SIGFA CARD
+====================================================== */
+
+.sigfa-card {
+
+    background: #102118;
+
+    border: 1px solid #1D3B2D;
+
+    border-radius: 18px;
+
+    padding: 24px;
+
+    color: white;
+
+    transition: .25s;
+
+}
+
+.sigfa-card:hover {
+
+    transform: translateY(-3px);
+
+    border-color: #00C853;
+
+    box-shadow: 0 12px 30px rgba(0, 200, 83, .12);
+
+}
+
+.sigfa-card-header {
+
+    margin-bottom: 18px;
+
+}
+
+.sigfa-card-title {
+
+    margin: 0;
+
+    font-size: 20px;
+
+}
+
+.sigfa-card-subtitle {
+
+    margin-top: 6px;
+
+    color: #95A79D;
+
+    font-size: 14px;
+
+}
+
+.sigfa-card-body {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+}
+
+.sigfa-card-footer {
+
+    margin-top: 20px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #1F3D2E;
+
+}
+
+/* ======================================================
+   METRIC CARD
+====================================================== */
+
+.metric-card {
+
+    min-height: 170px;
+
+}
+
+.metric-icon {
+
+    font-size: 34px;
+
+    margin-bottom: 18px;
+
+}
+
+.metric-value {
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    color: #00C853;
+
+}
+
+.metric-title {
+
+    margin-top: 8px;
+
+    color: white;
+
+    font-size: 16px;
+
+}
+
+.metric-variation {
+
+    margin-top: 14px;
+
+    color: #9EB4A6;
+
+    font-size: 13px;
+
+}

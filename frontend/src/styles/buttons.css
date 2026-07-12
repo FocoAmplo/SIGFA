@@ -1,0 +1,93 @@
+/* ==========================================================
+   BOTÕES - SIGFA DESIGN SYSTEM
+========================================================== */
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 14px 28px;
+
+    border-radius: 16px;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: .30s;
+
+    text-decoration: none;
+
+    user-select: none;
+}
+
+/* ========================================= */
+
+.btn-primary {
+
+    background: linear-gradient(135deg,
+            var(--color-primary),
+            var(--color-primary-light));
+
+    color: white;
+
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-primary:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow-large);
+}
+
+/* ========================================= */
+
+.btn-secondary {
+
+    background: transparent;
+
+    border: 1px solid var(--color-border);
+
+    color: var(--color-text);
+}
+
+.btn-secondary:hover {
+
+    background: rgba(255, 255, 255, .05);
+}
+
+/* ========================================= */
+
+.btn-danger {
+
+    background: var(--color-danger);
+
+    color: white;
+}
+
+/* ========================================= */
+
+.btn-success {
+
+    background: var(--color-success);
+
+    color: white;
+}
+
+/* ========================================= */
+
+.btn-full {
+
+    width: 100%;
+}

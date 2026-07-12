@@ -1,1 +1,8 @@
-fastapi\nuvicorn\npandas\n
+fastapi
+uvicorn
+PyJWT
+passlib[bcrypt]
+sqlalchemy
+pydantic[email]
+pandas
+python-multipart

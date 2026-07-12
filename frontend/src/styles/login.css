@@ -1,0 +1,309 @@
+/* ==========================================================
+   SIGFA LOGIN
+========================================================== */
+
+.sigfa-login-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px;
+
+    background:
+        radial-gradient(circle at top left, #1ab05d22, transparent 35%),
+        radial-gradient(circle at bottom right, #0f8f4d33, transparent 40%),
+        linear-gradient(135deg,
+            #061510 0%,
+            #0b2018 45%,
+            #102b20 100%);
+}
+
+/* ======================================================== */
+
+.sigfa-login-container {
+
+    width: 100%;
+
+    max-width: 1450px;
+
+    min-height: 760px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 520px;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    background: rgba(10, 25, 18, .82);
+
+    backdrop-filter: blur(22px);
+
+    box-shadow: 0 35px 80px rgba(0, 0, 0, .45);
+}
+
+/* ======================================================== */
+
+.sigfa-login-brand {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 70px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(145deg,
+            rgba(15, 143, 77, .25),
+            rgba(4, 15, 11, .95));
+}
+
+/* ======================================================== */
+
+.sigfa-brand-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(circle at top left,
+            rgba(25, 210, 110, .18),
+            transparent 40%),
+
+        radial-gradient(circle at bottom right,
+            rgba(15, 143, 77, .18),
+            transparent 45%);
+}
+
+/* ======================================================== */
+
+.sigfa-brand-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 650px;
+}
+
+/* ======================================================== */
+
+.sigfa-logo-badge {
+
+    width: 84px;
+
+    height: 84px;
+
+    border-radius: 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 32px;
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    color: #07110D;
+
+    background: linear-gradient(135deg, var(--color-accent), var(--color-primary-light));
+
+    box-shadow: 0 18px 40px rgba(15, 143, 77, .25);
+}
+
+/* ======================================================== */
+
+.sigfa-tag {
+
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, .08);
+
+    color: #8cf2ba;
+
+    font-size: 13px;
+
+    margin-bottom: 22px;
+}
+
+/* ======================================================== */
+
+.sigfa-brand-content h1 {
+
+    font-size: 54px;
+
+    line-height: 1.1;
+
+    margin-bottom: 24px;
+}
+
+.sigfa-brand-content strong {
+
+    color: var(--color-primary-light);
+}
+
+/* ======================================================== */
+
+.sigfa-brand-content p {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    color: var(--color-text-secondary);
+
+    max-width: 560px;
+}
+
+/* ======================================================== */
+
+.sigfa-brand-cards {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-top: 60px;
+}
+
+/* ======================================================== */
+
+.sigfa-mini-card {
+
+    background: rgba(255, 255, 255, .04);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    border-radius: 18px;
+
+    padding: 22px;
+
+    backdrop-filter: blur(12px);
+
+    transition: .30s;
+}
+
+.sigfa-mini-card:hover {
+
+    transform: translateY(-6px);
+
+    border-color: var(--color-primary);
+}
+
+/* ======================================================== */
+
+.sigfa-mini-card span {
+
+    font-size: 28px;
+
+    display: block;
+
+    margin-bottom: 18px;
+}
+
+.sigfa-mini-card strong {
+
+    display: block;
+
+    margin-bottom: 8px;
+}
+
+.sigfa-mini-card small {
+
+    color: var(--color-text-secondary);
+}
+
+/* ======================================================== */
+
+.sigfa-login-form {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 60px;
+}
+
+/* ======================================================== */
+
+.sigfa-login-card {
+
+    width: 100%;
+
+    max-width: 420px;
+}
+
+.sigfa-login-small {
+
+    color: var(--color-primary-light);
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 12px;
+}
+
+.sigfa-login-card h2 {
+
+    margin: 15px 0;
+
+    font-size: 34px;
+}
+
+.sigfa-login-card p {
+
+    color: var(--color-text-secondary);
+
+    margin-bottom: 35px;
+}
+
+/* ======================================================== */
+
+@media(max-width:1100px) {
+
+    .sigfa-login-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .sigfa-login-brand {
+
+        display: none;
+
+    }
+
+    .sigfa-login-form {
+
+        padding: 40px;
+
+    }
+
+}

@@ -1,0 +1,87 @@
+:root {
+
+   /* ==========================================================
+       CORES PRINCIPAIS
+    ========================================================== */
+
+   --color-primary: #0F8F4D;
+   --color-primary-dark: #0A6C39;
+   --color-primary-light: #21C96B;
+
+   --color-secondary: #0B1C2B;
+   --color-accent: #F2B84B;
+
+   --color-background: #07110D;
+   --color-surface: #0C1B15;
+   --color-card: #13261E;
+
+   --color-border: #214837;
+
+   --color-text: #F7F9F8;
+   --color-text-secondary: #AFC5BA;
+   --color-text-muted: #73897F;
+
+   --color-success: #23C552;
+   --color-warning: #F5A524;
+   --color-danger: #F04438;
+   --color-info: #1F8FFF;
+
+   /* ==========================================================
+       SOMBRAS
+    ========================================================== */
+
+   --shadow-small:
+      0 4px 12px rgba(0, 0, 0, .15);
+
+   --shadow-medium:
+      0 12px 30px rgba(0, 0, 0, .25);
+
+   --shadow-large:
+      0 25px 60px rgba(0, 0, 0, .45);
+
+   /* ==========================================================
+       BORDAS
+    ========================================================== */
+
+   --radius-small: 8px;
+   --radius-medium: 16px;
+   --radius-large: 24px;
+   --radius-xl: 32px;
+
+   /* ==========================================================
+       ESPAÇAMENTOS
+    ========================================================== */
+
+   --space-1: 4px;
+   --space-2: 8px;
+   --space-3: 12px;
+   --space-4: 16px;
+   --space-5: 20px;
+   --space-6: 24px;
+   --space-7: 32px;
+   --space-8: 40px;
+   --space-9: 56px;
+
+   /* ==========================================================
+       TIPOGRAFIA
+    ========================================================== */
+
+   --font-family:
+      "Inter",
+      "Segoe UI",
+      sans-serif;
+
+   --font-small: 13px;
+   --font-normal: 15px;
+   --font-medium: 17px;
+   --font-large: 22px;
+   --font-title: 32px;
+   --font-hero: 52px;
+
+   /* ==========================================================
+       TRANSIÇÕES
+    ========================================================== */
+
+   --transition-fast: .2s;
+   --transition-normal: .35s;
+}

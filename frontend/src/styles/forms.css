@@ -1,0 +1,132 @@
+/* ==========================================================
+   SIGFA DESIGN SYSTEM
+   FORMULÁRIOS
+========================================================== */
+
+.sigfa-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+
+    width: 100%;
+}
+
+.sigfa-form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.sigfa-label {
+
+    color: var(--color-text-secondary);
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.sigfa-input {
+
+    width: 100%;
+
+    padding: 16px 18px;
+
+    border-radius: 16px;
+
+    border: 1px solid var(--color-border);
+
+    background: rgba(255, 255, 255, .03);
+
+    color: var(--color-text);
+
+    font-size: 15px;
+
+    transition: .30s;
+}
+
+.sigfa-input::placeholder {
+
+    color: var(--color-text-muted);
+}
+
+.sigfa-input:focus {
+
+    border-color: var(--color-primary);
+
+    box-shadow: 0 0 0 3px rgba(15, 143, 77, .18);
+
+    background: rgba(255, 255, 255, .05);
+}
+
+.sigfa-input:disabled {
+
+    opacity: .6;
+
+    cursor: not-allowed;
+}
+
+.sigfa-select {
+
+    width: 100%;
+
+    padding: 16px;
+
+    border-radius: 16px;
+
+    border: 1px solid var(--color-border);
+
+    background: var(--color-surface);
+
+    color: var(--color-text);
+}
+
+.sigfa-textarea {
+
+    min-height: 140px;
+
+    resize: vertical;
+
+    padding: 18px;
+
+    border-radius: 16px;
+
+    border: 1px solid var(--color-border);
+
+    background: rgba(255, 255, 255, .03);
+
+    color: var(--color-text);
+
+    font-family: inherit;
+
+    transition: .30s;
+}
+
+.sigfa-textarea:focus {
+
+    border-color: var(--color-primary);
+
+    box-shadow: 0 0 0 3px rgba(15, 143, 77, .18);
+}
+
+.sigfa-help {
+
+    color: var(--color-text-muted);
+
+    font-size: 13px;
+}
+
+.sigfa-error {
+
+    color: var(--color-danger);
+
+    font-size: 13px;
+
+    font-weight: 600;
+}

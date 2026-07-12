@@ -5,6 +5,23 @@ from .api.ai import router as ai_router
 from .api.auth import router as auth_router
 from .api.company import router as company_router
 from .api.dashboard import router as dashboard_router
+from .api.diagnosis import action_plan_router
+from .api.diagnosis import ai_recommendation_router
+from .api.diagnosis import answer_router
+from .api.diagnosis import attachment_router
+from .api.diagnosis import diagnosis_router
+from .api.diagnosis import history_router
+from .api.diagnosis import score_router
+from .api.knowledge import concept_router
+from .api.knowledge import evidence_router
+from .api.knowledge import kpi_router
+from .api.knowledge import method_router
+from .api.knowledge import omc_router
+from .api.knowledge import question_router
+from .api.knowledge import recommendation_router
+from .api.knowledge import relationship_router
+from .api.knowledge import risk_router
+from .api.knowledge import tool_router
 from .database.seed import create_database, seed_initial_data
 
 app = FastAPI(
@@ -38,6 +55,23 @@ app.include_router(auth_router)
 app.include_router(company_router)
 app.include_router(ai_router)
 app.include_router(dashboard_router)
+app.include_router(diagnosis_router)
+app.include_router(answer_router)
+app.include_router(score_router)
+app.include_router(action_plan_router)
+app.include_router(attachment_router)
+app.include_router(history_router)
+app.include_router(ai_recommendation_router)
+app.include_router(omc_router)
+app.include_router(concept_router)
+app.include_router(method_router)
+app.include_router(tool_router)
+app.include_router(kpi_router)
+app.include_router(question_router)
+app.include_router(evidence_router)
+app.include_router(risk_router)
+app.include_router(recommendation_router)
+app.include_router(relationship_router)
 
 
 @app.get("/", summary="Plataforma SIGFA status")
