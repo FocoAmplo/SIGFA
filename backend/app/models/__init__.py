@@ -38,6 +38,8 @@ from .ai_log import AILog
 from .refresh_token import RefreshToken
 from .login_audit import LoginAudit
 from .notification import Notification
+from .lead import Lead 
+
 
 __all__ = [
     "Base",
@@ -76,5 +78,6 @@ __all__ = [
     "RefreshToken",
     "LoginAudit",
     "Notification",
-
+    "Lead",
+    
 ]

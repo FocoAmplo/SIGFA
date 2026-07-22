@@ -6,6 +6,13 @@ from backend.app.api.company import router as company_router
 from backend.app.api.dashboard import router as dashboard_router
 from backend.app.api.documents import router as documents_router
 from backend.app.api.ai import router as ai_router
+from backend.app.api.public import router as public_router
+from fastapi.responses import HTMLResponse
+
+from backend.app.public_site.pages import (
+    PRIVACY_HTML,
+    TERMS_HTML,
+)
 
 app = FastAPI(
     title="SIGFA API",
@@ -31,6 +38,7 @@ app.include_router(company_router)
 app.include_router(documents_router)
 app.include_router(dashboard_router)
 app.include_router(ai_router)
+app.include_router(public_router)
 
 
 @app.get("/")
@@ -49,3 +57,13 @@ def health():
     return {
         "status": "ok"
     }
+@app.get("/privacy", response_class=HTMLResponse)
+def privacy():
+
+    return PRIVACY_HTML
+
+
+@app.get("/terms", response_class=HTMLResponse)
+def terms():
+
+    return TERMS_HTML
