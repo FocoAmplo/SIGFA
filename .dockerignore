@@ -29,23 +29,17 @@ __pycache__/
 
 # Node
 node_modules/
+frontend/node_modules/
+frontend/dist/
 
 # Documentação e arquivos auxiliares
 docs/
 tests/
 *.xlsx
-*.txt
-
-# Sistema
-.DS_Store
-Thumbs.db
-
-# Frontend (não será publicado neste build)
-frontend/node_modules/
-frontend/dist/
 
 # Arquivos do GitHub
 .github/
 
-# Deployment local
-deployment/*.log
+# Sistema
+.DS_Store
+Thumbs.db
