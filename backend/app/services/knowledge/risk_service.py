@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.risk import Risk
-from app.schemas.risk import RiskCreate
-from app.schemas.risk import RiskUpdate
+from backend.app.models.risk import Risk
+from backend.app.schemas.risk import RiskCreate
+from backend.app.schemas.risk import RiskUpdate
 
 
 class RiskService:

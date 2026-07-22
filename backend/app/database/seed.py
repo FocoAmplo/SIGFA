@@ -34,6 +34,8 @@ from ..models.dashboard import Dashboard
 from ..models.card import Card
 from ..models.chart import Chart
 from ..models.filter import Filter
+from ..models.refresh_token import RefreshToken
+from ..models.login_audit import LoginAudit
 
 ADMIN_EMAIL = "admin@sigfa.com.br"
 ADMIN_PASSWORD = "Admin123!"
@@ -75,6 +77,8 @@ CORE_TABLES = [
     Card.__table__,
     Chart.__table__,
     Filter.__table__,
+    RefreshToken.__table__,
+    LoginAudit.__table__,
 ]
 
 

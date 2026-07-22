@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.score import Score
-from app.schemas.score import ScoreCreate
-from app.schemas.score import ScoreUpdate
+from backend.app.models.score import Score
+from backend.app.schemas.score import ScoreCreate
+from backend.app.schemas.score import ScoreUpdate
 
 
 class ScoreService:

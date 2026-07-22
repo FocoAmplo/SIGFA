@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.concept import Concept
-from app.schemas.concept import ConceptCreate
-from app.schemas.concept import ConceptUpdate
+from backend.app.models.concept import Concept
+from backend.app.schemas.concept import ConceptCreate
+from backend.app.schemas.concept import ConceptUpdate
 
 
 class ConceptService:

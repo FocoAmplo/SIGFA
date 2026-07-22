@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.omc import OMC
-from app.schemas.omc import OMCCreate
-from app.schemas.omc import OMCUpdate
+from backend.app.models.omc import OMC
+from backend.app.schemas.omc import OMCCreate
+from backend.app.schemas.omc import OMCUpdate
 
 
 class OMCService:

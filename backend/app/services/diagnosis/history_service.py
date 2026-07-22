@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.history import History
-from app.schemas.history import HistoryCreate
-from app.schemas.history import HistoryUpdate
+from backend.app.models.history import History
+from backend.app.schemas.history import HistoryCreate
+from backend.app.schemas.history import HistoryUpdate
 
 
 class HistoryService:

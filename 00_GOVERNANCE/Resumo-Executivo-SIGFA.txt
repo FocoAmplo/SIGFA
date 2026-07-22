@@ -1,0 +1,167 @@
+# Resumo Executivo  
+
+O **SIGFA (Sistema Integrado de Gestão Foco Amplo)** entra no mercado brasileiro com uma proposta híbrida única: é uma plataforma SaaS de inteligência empresarial e diagnóstico para empresas de médio porte, especialmente no setor da construção civil, complementada por um “GPT Público” que funciona como agente comercial. Em resumo, o SIGFA objetiva **gerar leads qualificados via IA** e **conduzir diagnósticos empresariais internos protegidos**. Competindo com ERPs robustos e com empresas de consultoria, o SIGFA se diferencia pelo uso de IA avançada (Gemini/OpenAI) e atendimento especializado, mirando construtoras de Itajaí/SC e região.  
+
+Nos próximos meses, o foco está em concluir a infraestrutura (Cloud Run, Docker), validar o backend+frontend, lançar a API pública e integrar o GPT Público. Em paralelo, será importante buscar parcerias locais (incubadoras, associações de construção, potenciais “pilotos” em construtoras locais) para demonstrar valor. O preço do SIGFA ainda será definido, mas deverá ser competitivo com soluções SaaS de porte médio (ex.: Mais Controle a partir de R$269/mês ou Obra Prima a R$399/mês).  
+
+A seguir apresentamos uma análise detalhada de concorrentes, SWOT e estratégias de diferenciação. Tudo assume a arquitetura mestre fornecida, com **SIGFA como núcleo operacional** e **GPT Público como canal comercial**.
+
+## 1. Mapa de Concorrentes  
+
+### 1.1 Nacionais – ERPs e Plataformas Gerais  
+- **TOTVS Construção (ERP)** – Sistema completo para construtoras e incorporadoras; modelo licenciado/subscrição. Público: grandes empresas. Não divulga preço. **Forças:** líder nacional, já atende 18 das 25 maiores construtoras, coberturas amplas (do pré-obra à pós-obra) e profundo conhecimento fiscal/contábil. **Fraquezas:** alto custo e complexidade de implantação; menos acessível a pequenas e médias empresas.  
+- **SAP Business One** – ERP corporativo (modelo licenças). Público: médias/grandes empresas. Não divulgado. **Forças:** reconhecimento mundial, robusto, integra finanças e projetos. **Fraquezas:** exige consultoria SAP, custo alto, pouco “vertical” em construção.  
+- **Softplan – Sienge** – *Ecossistema* focado em construção civil (ERP SaaS especializado). Público: construtoras/incorporadoras médias e grandes. Preço sob consulta (empresas e projetos grandes). **Forças:** líder de mercado; cerca de *77 das 100 maiores construtoras do Brasil* usam Sienge, cobrindo R$520 bi anuais de VGV; mais de 10 mil clientes; ampla cobertura funcional (planejamento, BIM, suprimentos, financeiro, etc.). **Fraquezas:** muito robusto, demanda implantação longa (curva de aprendizado alta); custo elevado; foco em grandes empresas (difícil para pequenos).  
+
+### 1.2 Nacionais – Soluções Especializadas em Construção (Middle Market)  
+- **Mais Controle** (www.maiscontroleerp.com.br) – Sistema SaaS para gestão de obras, voltado a pequenas e médias construtoras. Modelo: mensal; plano inicial R$269/mês (contrato anual). **Público:** construtoras pequenas/médias. **Pontos fortes:** fácil de usar, financeiro integrado ao canteiro, modular (diário de obras, compras, portal cliente, etc. opcionais). **Pontos fracos:** poucos recursos avançados de BI e consultoria; menor penetração no Sul.  
+- **Obra Prima** (www.obraprima.eng.br) – Software de gestão de obras (SaaS). A partir de R$399,20/mês. **Público:** pequenas construtoras. **Forças:** 22.000 obras ativas e 2.000 clientes, foco em orçamento e diário de obras. **Fraquezas:** concorrência direta da Mais Controle, menos conhecido em SC, menos módulos do que ERPs grandes.  
+- **Obrafit** (www.obrafit.com.br) – Sistema de acompanhamento diário de obras, mobile-friendly. **Público:** construtoras pequenas. **Forças:** simplicidade, app móvel, voltado ao supervisor de campo. **Fraquezas:** funcionalidades limitadas (foco no operacional diário, não integra finanças/ERP).  
+- **Vigha** (www.vighapp.com) – Plataforma com IA para orçamento de obras (usando IA chamada ORÇA-IA). **Público:** construtoras que querem acelerar orçamentos. **Forças:** IA embarcada para orçamentos; especialista em qualidade e segurança. **Fraquezas:** nicho muito específico (orçamentos); não cobre gestão total da obra.  
+- **OrçaFascio** (www.orcafascio.com) – Especializado em orçamentos SINAPI e licitações. **Público:** órgãos públicos e empresas focadas em licitação. **Forças:** profundo domínio de SINAPI (87 mil composições). **Fraquezas:** muito nicho (apenas pré-obra).  
+- **Vobi** (www.vobi.com.br) – Plataforma web colaborativa para construtoras, projetos, escritórios de arquitetura. **Público:** pequenas e médias empresas. **Forças:** foco colaborativo e digitalização, portal cliente, extensão de catálogo. **Fraquezas:** competidor menos conhecido; recursos iniciais focados em orçamentos e processos de equipe.  
+
+### 1.3 Regionais de SC e Itajaí  
+- **Softplan (Florianópolis/SC)** – Além do Sienge, Softplan (Florianópolis) possui outras soluções e hubs de inovação, mas Sienge é o principal produto para construção..  
+- **Totvs Filial SC** – TOTVS tem forte presença em SC (Joinville, Itajaí, Florianópolis). Os clientes regionais podem ser atendidos por consultores locais.  
+- **Incubadoras e Consultorias Locais** – Em Itajaí há iniciativas como **Consutech (engenharia e consultoria)** e incubadoras (MIDITEC/Univali). Elas não vendem software, mas são concorrentes em consultoria empresarial/regional.  
+- **Outros ERPs e Integradores** – Empresas nacionais como **Linxis, Protheus (TOTVS)** ou **Senior** podem ser usados por empresas da região; como não são especializados em construção, competem de forma lateral.  
+
+<table>
+<thead>
+<tr><th>Concorrente</th><th>URL</th><th>Produto/Serviço</th><th>Modelo</th><th>Público-Alvo</th><th>Preço Público</th><th>Forças</th><th>Fraquezas</th></tr>
+</thead>
+<tbody>
+<tr><td>Sienge (Softplan)</td><td><a href="https://sienge.com.br">sienge.com.br</a></td><td>ERP especialista para Construção Civil</td><td>SaaS (web)</td><td>Grandes construtoras/incorporadoras</td><td>Personalizado (não divulgado)</td><td>Líder de mercado; usado por 77 das 100 maiores construtoras; cobertura completa do negócio (pré-obra ao pós-venda).</td><td>Elevado custo; implantação demorada; voltado a grandes empresas (difícil adoção em PMEs).</td></tr>
+<tr><td>TOTVS Construção</td><td><a href="https://www.totvs.com/construcao/">totvs.com/construcao</a></td><td>ERP Construção (projetos e obras)</td><td>Licença/Subscrição</td><td>Médias e grandes</td><td>Personalizado</td><td>Atende 2.300+ clientes (18/25 maiores construtoras usam TOTVS); módulos integrados (financeiro, obras, suprimentos); forte suporte e conformidade fiscal.</td><td>Complexo e caro; implementação longa; menos ágil para pequenas construtoras; geralmente on-premises ou sob medida.</td></tr>
+<tr><td>Mais Controle</td><td><a href="https://maiscontroleerp.com.br">maiscontroleerp.com.br</a></td><td>SaaS gestão de obras</td><td>SaaS mensal</td><td>PMEs da construção</td><td>Plano inicial R$269/mês (contrato anual)</td><td>Fácil de usar; rápido ROI; financeiro integrado ao canteiro; escalável por módulos.</td><td>Menos recursos avançados (BI, compliance) que ERPs maiores; foco restrito à obra (sem consultoria embutida).</td></tr>
+<tr><td>Obra Prima</td><td><a href="https://obraprima.eng.br">obraprima.eng.br</a></td><td>SaaS de gestão de obras</td><td>SaaS mensal</td><td>PMEs da construção</td><td>A partir de R$399,20/mês</td><td>Funcionalidades completas (orçamento, diário de obra, compras, financeiro); forte penetração (22k+ obras, 2k clientes); app móvel.</td><td>Menos conhecido no Sul do país; preço um pouco acima da Mais Controle; não possui o diferencial de IA/consultoria.</td></tr>
+<tr><td>Obrafit</td><td><a href="https://www.obrafit.com.br">obrafit.com.br</a></td><td>Gestão de obras (foco mobile)</td><td>SaaS mensal</td><td>Pequenas construtoras</td><td>Não divulgado</td><td>Muito simples de usar; aplicativo móvel completo; registra RDO e checklists facilmente.</td><td>Funcionalidade limitada (não faz ERP financeiro completo); voltado à gestão do dia a dia apenas.</td></tr>
+<tr><td>Vigha</td><td><a href="https://www.vighapp.com">vighapp.com</a></td><td>SaaS com IA para orçamentos</td><td>SaaS mensal</td><td>Construtoras precisando de orçamentos rápidos</td><td>Não divulgado</td><td>Orçamentos com IA (ORÇA-IA) que acelera planejamento; abordagem inovadora; especializada em segurança/qualidade.</td><td>Muito nichado (pré-obra); não cobre gestão de projetos ou consultoria; tecnologia ainda emergente.</td></tr>
+<tr><td>Outros (Ferramentas Complementares)</td><td>–</td><td>ERP genéricos e consultorias<br/>(e.g. SAP B1, contabilidade, Sebrae)</td><td>Licença/Serviços</td><td>Variado</td><td>Variado</td><td>Soluções consolidadas (SAP, contadores) ou consultoria de gestão (Sebrae/SC oferece diagnóstico gratuito); ampla reputação.</td><td>Em geral não automatizam / integram IA; Diagnósticos gratuitos (ex.: Sebrae/SC) são menos profundos e não automatizados.</td></tr>
+</tbody>
+</table>
+
+## 2. Análise SWOT (SIGFA vs. Concorrentes)
+
+- **Frente a ERPs robustos (Sienge, TOTVS):**  
+  - *Forças do SIGFA:* Foco em usabilidade e implantação rápida, além de IA embutida (Gemini e GPT) para diagnóstico e geração de leads, algo que os ERPs tradicionais não oferecem. A solução é SaaS de forma nativa (cloud) e com visão consultiva, o que atrai pequenas empresas que se sentem “engolidas” por sistemas complexos. Preço inicial mais baixo (ex.: comparável a Mais Controle) e modelo flexível (sem licenças onerosas).  
+  - *Fraquezas do SIGFA:* Menos funcionalidade horizontal atualmente (ainda em desenvolvimento de módulos do núcleo SaaS). Marca nova sem reputação consolidada; clientes grandes veem SIGFA como arriscado vs. nomes consagrados.  
+  - *Oportunidades:* Muitas PMEs de construção sentem falta de soluções fáceis de adotar. Podem migrar de planilhas ou contadores tradicionais. DIFERENCIAÇÃO chave: GPT Público e IA de análise, agregando valor consultivo gratuito e atraindo leads.  
+  - *Ameaças:* Grandes ERPs podem responder (já fazem aquisições, ex.: Softplan comprou Prevision para reforçar Sienge). Mudanças regulatórias ou fiscais podem favorecer quem já está em “compliance”.  
+
+- **Frente a soluções especializadas (Mais Controle, ObraPrima, etc.):**  
+  - *Forças do SIGFA:* Integração de inteligência (Gemini, RAG, dados corporativos) que esses produtos não têm; consultoria corporativa acoplada (mentoria para clientes). GPT Público atrai leads de forma ativa, enquanto eles apenas oferecem plataforma.  
+  - *Fraquezas:* Os concorrentes têm anos de refinamento de produto focado em obra (MAIS CONTROLE 2026, OBRA PRIMA 2025). SIGFA precisa alcançar o mesmo nível de usabilidade e estabilidade no SaaS base.  
+  - *Oportunidades:* Parcerias com esses players para integrar dados (ex.: módulo de gestão financeira de uma pode ser usado pelo SIGFA via APIs). Foco em mercado vertical (Itajaí) onde a penetração deles pode ser mais baixa.  
+  - *Ameaças:* Startup enxuta; concorrentes têm funding e já operações estáveis, podendo baixar preço ou melhorar produto (“guerra de preço”). Empresas já fidelizadas tendem a não trocar.
+
+- **Frente a consultorias regionais (Consutech etc.) e órgãos (Sebrae):**  
+  - *Forças do SIGFA:* Abordagem tecnológica e escalável; capacidade de agregar dados e IA para diagnósticos mais rápidos e contínuos do que consultorias tradicionais.  
+  - *Fraquezas:* Consultorias já têm relacionamento forte local; SIGFA precisará provar entrega de valor e confiança.  
+  - *Oportunidades:* Oferecer diagnostico inicial **gratuito** (via GPT Público) para atrair quem só buscaria Sebrae/consultorias. Colaboração – SIGFA pode referenciar serviços de engenharia (como Consutech) e vice-versa.  
+  - *Ameaças:* Programas públicos (ex.: Sebrae/SC) podem realizar campanhas de diagnóstico gratuito atendendo parte do mercado que SIGFA quer.  
+
+## 3. Curvas de Desafio  
+
+- **Tecnologia:** O SIGFA usa tecnologias modernas (Cloud, Kubernetes, IA Gemini/GPT). Isso exige investimento em equipe capacitada e governança técnica. A curva de adoção de IA é íngreme; mas a concorrência ainda está distante nesse campo.  
+- **Compliance:** Construção civil no Brasil tem muitas obrigações fiscais (SPED, NFe, CND) e trabalhistas (eSocial, NRs). Implementar esses módulos requer atenção. Como SaaS em Cloud, é preciso garantir segurança da informação (LGPD, ISO27001) para ganhar confiança.  
+- **Vendas:** B2B complexo: ciclos de vendas longos, múltiplos decisores (diretoria, TI, finanças). A curva de aprendizado comercial é íngreme. SIGFA tenta mitigá-la com o GPT Público (qualificar leads automaticamente).  
+- **Integração:** Clients podem ter sistemas legados (financeiro, contábil). O SIGFA precisa oferecer APIs ou integrações (ex.: importação OFX, conexão com ERP existente) – um desafio inicial de desenvolvimento.  
+- **Retenção:** Software de gestão sofre churn se clientes não percebem valor constante. Dificuldade inicial na retenção se falta apoio consultivo. O modelo de GPT Público e mentoria ajuda a criar engajamento contínuo (único diferencial do SIGFA).  
+- **Escalabilidade:** Arquitetura em Cloud facilita: microserviços e IA exigem escalabilidade horizontal. O desafio é manter performance (ex.: latência do chat IA, geração de relatórios) conforme cresce base de dados.  
+- **Precificação:** Encontrar o ponto de equilíbrio que cubra custos de IA (Modelos Gemini e OpenAI) sem afastar PMEs sensíveis a preço. Concorrência usa planos modulados (ex.: Mais Controle cobre módulos separados). SIGFA deve calibrar planos mensais ou anuais baseados em valor (diagnósticos e assessoria embutidos).  
+- **Segurança/Confiança:** Ganhar a confiança de empresas (e.g., incorporadoras) é um desafio. Ter um “GPT público” conversando com clientes expõe a marca, mas sem acesso a dados internos do SIGFA – é um design que reduz riscos de vazamento. Ainda assim, SIGFA deve investir em certificações (LGPD, confiabilidade do chat, blockchain para logs etc.) para superar essa curva.
+
+## 4. Barreiras de Entrada e Riscos Regulatórios  
+
+- **Barreiras de Entrada:** Grandes ERPs já estão instalados (vetorizado). Mudar para SIGFA exige esforço de migração. Integradores/parceiros de sistemas incumbentes podem ser barreira. Será vital mostrar ROI rápido. A dependência de Cloud exige estabilidade de conectividade (no canteiro), o que pode ser visto como limitação por construtoras em locais remotos.  
+- **Riscos Regulatórios:** A construção é regulamentada (NRs de segurança, prefeitura e código de obras locais). Porém, o SIGFA não é um equipamento de obra, logo não há certificações específicas de produto. O maior aspecto legal é de dados: precisa cumprir LGPD (dados pessoais de usuários) e normas de contabilidade digital. Uso de IA impõe governança (precisa explicitar fontes e limitar vieses). Também deve acompanhar mudanças em tributos (ex.: Nota Fiscal Eletrônica, eSocial); preferencialmente integrando módulos contábeis atualizáveis. Não há riscos regulatórios incomuns para SaaS, além dos esperados (proteção de dados, segurança).
+
+## 5. Oportunidades de Diferenciação  
+
+- **GPT Público (Agente Comercial):** Único no mercado. O SIGFA usará um chatbot avançado (baseado em OpenAI) para atrair e qualificar leads automaticamente. Isso é diferencial imenso: construtoras conversam com o GPT e recebem pré-diagnóstico grátis, termo de contrato, funil de vendas agilizado. Nenhum concorrente oferece IA conversacional para pré-venda em construção.  
+- **Diagnóstico Pré-Venda:** Oferecer um diagnóstico empresarial inicial (financeiro, organizacional, compliance) imediato pelo GPT é inédito. Enquanto concorrentes pedem contato comercial, o SIGFA disponibiliza valor imediato, criando confiança e capturando dados.  
+- **Integração com Gemini (Google) e RAG:** Dentro do SIGFA, a camada de IA (Gemini, memórias de clientes, base de conhecimento corporativo) permite fornecer **insights preditivos, recomendações de melhoria e automatização**. Isso cria serviços de valor agregado (ex.: análise de risco de projetos, previsão de gastos). Diferencia de ERPs “estáticos”.  
+- **Consultoria com Mentoria Especializada:** O SIGFA promete mais que software: cada cliente terá opção de consultoria/mentoria humanizada (possivelmente webinar, suporte premium, gestor de conta). Os concorrentes de SaaS puro não enfatizam isso.  
+- **Foco Construção/Itajaí:** Desenvolver relatórios e diagnósticos sob medida para construção civil e adequados às regulamentações locais de SC (por exemplo, cenários fiscais estaduais) agrega valor. O conhecimento regional (como custos de mão de obra e logística de Santa Catarina) é uma vantagem local, criando relação de proximidade (poder trabalhar com entidades locais, não apenas um serviço genérico nacional).  
+
+## 6. Estratégia de Go-to-Market (Itajaí)  
+
+- **Parcerias Locais:** Buscar acordos com **ACII (Associação Comercial e Industrial de Itajaí)**, **Associação Comercial de Blumenau/Itajaí** e **Sebrae/SC (nucleo Itajaí)** para apresentar o SIGFA. Participar de eventos regionais (p.ex. encontros do Sinduscon-Floripa) para conscientização. Explorar a incubadora local (MIDITEC/Acate Itajaí) para networking com startups e órgãos de apoio.  
+- **Pilotos em Construtoras:** Oferecer projetos-piloto com 1–2 construtoras locais de médio porte (ex.: que se encaixam no perfil de público-alvo). Poderiam ser dos setores de logística (Itajaí tem muitos galpões industriais) ou incorporadoras locais. Pilotos valem como prova de conceito e gerarão cases regionais. O ideal é obter depoimentos para marketing futuro.  
+- **Pricing Sugerido:** Planos mensais semelhantes aos concorrentes de médio porte. Por exemplo, assinatura básica (gestão de obras+financeiro) em torno de R$300–400/mês (anual), módulos adicionais (chat GPT, BI, etc) custando extra. Oferecer desconto inicial para contratações em 2026. Iniciar com preço competitivo próximo ao Mais Controle ou Obra Prima; depois ajustar pelo valor agregado (IA).  
+- **Tática Comercial:** Inbound marketing de conteúdo (caso de sucesso no setor de obras, webinars sobre IA no negócio) aliado a prospecção ativa (GPT Público no site do SIGFA e campanha de e-mail marketing segmentada a empresas de SC). Vendas diretas podem usar a Qualificação do GPT Público: leads captados (diagnóstico via chat) chegam bem adiantados para o time comercial. Canais sociais (LinkedIn) e eventos locais reforçarão.  
+- **KPIs Iniciais:** *Leads captados pelo GPT Público*, *taxa de qualificação* (percentual de leads convertidos para trials), *número de demonstrações agendadas*, *ativação (usuários) no primeiro mês* e *satisfação dos primeiros clientes (NPS)*. Também *tempo médio de implementação* e *Custo de Aquisição de Cliente (CAC)* devem ser monitorados, ajustando as estratégias conforme necessário.  
+
+## 7. Roadmap de 6 Meses  
+
+```mermaid
+gantt
+    dateFormat  YYYY-MM-DD
+    title Roadmap de 6 Meses (ago 2026 – jan 2027)
+    section Infraestrutura (MVP de Produção)
+    Dockerfile & Cloud Run              :done,    infra1, 2026-07-25, 10d
+    CI/CD (Cloud Build/Deploy)           :done,    infra2, 2026-08-05, 10d
+    Healthchecks e Secrets Gestão       :active,  infra3, 2026-08-15, 7d
+    section Desenvolvimento Backend
+    Finalizar APIs Básicas (Empresas, Leads, Chat) :crit, backend1, 2026-08-22, 14d
+    Autenticação/JWT e Uploads           :backend2, 2026-09-05, 10d
+    Integração Gemini IA                :backend3, 2026-09-15, 7d
+    section Integração Frontend
+    Conectar Frontend à API (Login/Charts) :frontend1, 2026-09-22, 14d
+    Dashboard e Chat UI                  :frontend2, 2026-10-06, 14d
+    section Lançamento GPT Público
+    Implantar Chatbot em chat.focoamplo.com.br :gpt1, 2026-10-20, 10d
+    Ajustes de Prompt e Fluxo Comercial   :gpt2, 2026-10-30, 10d
+    section Go-to-Market Regional
+    Criar docs e demos focados Itajaí     :gtm1, 2026-11-10, 10d
+    Parcerias / Apresentações Locais     :gtm2, 2026-11-20, 20d
+    Pilotagem & Feedback (Empresa Itajaí):gtm3, 2026-12-10, 20d
+    section Escalonamento Inicial
+    Ajustes pós-piloto e marketing em larga :final, 2027-01-01, 20d
+```
+
+## 8. Tabela Comparativa de Concorrentes  
+
+```mermaid
+flowchart LR
+    subgraph "Concorrentes Principais"
+    Sienge["Sienge (Softplan)"]
+    TOTVS["TOTVS Construção"]
+    MaisC["Mais Controle"]
+    ObraP["Obra Prima"]
+    end
+```
+
+| Nome           | URL                           | Produto-chave            | Modelo (SaaS/Outro) | Público-Alvo                  | Preço (público)     | Pontos Fortes                                                           | Pontos Fracos                                                           |
+|----------------|-------------------------------|--------------------------|---------------------|-------------------------------|---------------------|------------------------------------------------------------------------|------------------------------------------------------------------------|
+| **Sienge**     | sienge.com.br                 | ERP Construção Civil     | SaaS (Cloud)        | Grandes construtoras/incorp.  | Sob consulta        | Líder nacional; 77/100 maiores construtoras usam; cobertura ponta-a-ponta. | Muito caro/complexo; lenta implementação; mais adequado a grandes empresas. |
+| **TOTVS Construção** | totvs.com/construcao    | ERP Construção/Imóveis   | Licença/Manutenção  | Médias e grandes empresas     | Sob consulta        | 2.300+ clientes na construção (18/25 maiores); módulos financeiros e de obra amplos. | Implantação longa; não focado só em construção; custo elevado para PMEs.   |
+| **Mais Controle** | maiscontroleerp.com.br      | Gestão de Obras SaaS     | SaaS (mensal)       | Pequenas e médias construtoras | R$269/mês (anual) | Interface intuitiva; plano inicial baixo; acelera 2h/dia de trabalho (estudo 2023). | Módulos extra opcionais (causa custo adicional); falta de consultoria embutida. |
+| **Obra Prima** | obraprima.eng.br             | Gestão de Obras SaaS     | SaaS (mensal)       | Pequenas construtoras         | R$399,20/mês | Funcionalidades completas (orçamento, diário, BI); +2.000 clientes; app móvel. | Marca menos conhecida em SC; preço um pouco acima de peers; sem IA.          |
+| **Evop**       | evop.com.br                  | ERP Gestão de Obras      | SaaS (mensal)       | Construtoras médias           | Sob consulta        | Desenvolvido por engenheiros; multi-obra; integra BIM, cronograma. | Menos divulgado; foco técnico (pode ter curva de aprendizado).              |
+| **Vobi**       | vobi.com.br                  | Gestão colaborativa obras | SaaS (mensal)       | Escritórios e pequenas construtoras | Sob consulta    | Colaboração forte; mobilidade; catálogos digitais.                 | Concorrente de nicho; funcionalidades mais focadas em equipe do que gestão.  |
+| **Vigha**      | vighapp.com                 | Orçamento de Obras (IA)  | SaaS (mensal)       | Construtoras atuantes em licitações | Sob consulta   | IA para orçamentos (ORÇA-IA); especialização em qualidade.           | Muito especializado (pré-obra); não substitui ERP ou consultoria geral.      |
+| **Outros (Sebrae/Incub.)** | –                 | Consultoria/Diagnóstico  | Gratuito/Serviços   | Micro e pequenas empresas     | Gratuito (Sebrae)   | Amplamente reconhecido; sem custo inicial.                             | Diagnósticos superficiais; sem plataforma integrada; sem IA; limitado a PMEs. |
+
+## 9. Recomendações de Integrações e Parcerias  
+
+- **Pagamentos:** Integrar **Stripe** (internacional) e **Mercado Pago** (Brasil) para permitir cobrança de mensalidades recorrentes e projetos. Isso simplifica o faturamento SaaS.  
+- **Comunicação:** **WhatsApp Business API** para notificações/alertas e contato rápido (por ex., lembretes de tarefas para o canteiro ou do cliente via o portal). Também considerar **Chat em Vídeo** (Zoom/Meet API) para consultorias ao vivo.  
+- **Produtividade Google:** Continuar usando Google Cloud (já em uso) e **Workspace** (Gmail, Drive, Docs) para documentação. Por exemplo, relatórios ou contratos gerados pelo SIGFA podem ser salvos no Google Drive do cliente ou integrados ao Gmail. Mantém compliance do idioma e ecosistema local (muitas empresas já usam).  
+- **ERP/Contabilidade:** Parcerias com integradores locais de **TOTVS, SAP ou Protheus** (oferecer conectores de importação/exportação). Conectar com sistemas contábeis brasileiros (Contmatic, Ágili, Domínio) via importação de OFX/NFe para simplificar adoção.  
+- **Legislação/Framework:** Utilizar APIs de NF-e da **SEFAZ** e de certificação digital (por ex., Serpro) para gerar relatórios fiscais. Observar normas da **Lei Geral de Proteção de Dados (LGPD)** – sugerir o uso de ferramentas de consentimento e segurança.  
+- **Outros:** Considerar integração com plataformas regionais de mercado (ex.: **Construmarket**, para divulgação; **Sebrae SC**, para relacionamento institucional). Avaliar **HubSpot/CRM** externo para pipeline de leads do GPT Público, caso necessário.  
+
+## 10. Recomendações Finais e Próximos Passos  
+
+O SIGFA 1.0 tem um bom alinhamento de oportunidades, mas precisa executar ordenadamente: primeiro concluir a infraestrutura Cloud e obter o MVP técnico (como planejado). Em seguida deve avançar rapidamente na parte comercial local. As três ações imediatas sugeridas são:
+
+1. **Finalizar e Validar Deploy em Nuvem:** Ajustar Dockerfile, `cloudrun.yaml` e pipeline do Cloud Build para publicar a API em `api.focoamplo.com.br`. Só após a plataforma estar online e estável é que testes de integração front/backend/IA podem avançar rapidamente.  
+2. **Preparar Demo e Material Focado Itajaí:** Criar um protótipo funcional mínimo (p.ex., um pequeno diagnóstico via chat) para demonstrar em conversas iniciais. Criar apresentações e documentos de “pitch” customizados para construtoras de Itajaí/SC, enfatizando diferenciais (GPT Público, mentoria local).  
+3. **Engajar Potenciais Parceiros/Pilotos Locais:** Contatar imediatamente associações locais (p.ex. ACII) e potenciais clientes âncora (ex.: incorporadoras de Itajaí). Agendar reuniões exploratórias para apresentar a solução e oferecer pilotos. Isso ajuda a coletar feedback real e ajustar produto/precificação nos primeiros meses.  
+
+Com a infraestrutura no ar e um primeiro piloto local encaminhado, o SIGFA começa a transição de projeto em infraestrutura para produto SaaS ativo. A partir daí, cada sprint conseguirá ser medido em funcionalidade entregue e receita potencial, aproximando o SIGFA de se tornar referência de gestão e inteligência empresarial no setor da construção em Itajaí e região.  
+
+**Fontes:** Sites oficiais (Sienge, TOTVS, Mais Controle, Obra Prima) e relatórios setoriais, todos em português, além de informações institucionais recentes (até 2026). As recomendações baseiam-se na análise da arquitetura fixa do SIGFA e no cenário atual de mercado.

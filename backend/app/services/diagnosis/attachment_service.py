@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.attachment import Attachment
-from app.schemas.attachment import AttachmentCreate
-from app.schemas.attachment import AttachmentUpdate
+from backend.app.models.attachment import Attachment
+from backend.app.schemas.attachment import AttachmentCreate
+from backend.app.schemas.attachment import AttachmentUpdate
 
 
 class AttachmentService:

@@ -1,55 +1,35 @@
 const AIHero = () => {
+
     return `
+
         <section class="ai-hero">
 
-            <div class="ai-hero-header">
+            <header class="ai-hero-header">
 
-                <span class="ai-hero-badge">
-                    CENTRO DE INTELIGÊNCIA SIGFA
+                <span class="section-label">
+
+                    PLATAFORMA CORPORATIVA INTELIGENTE
+
                 </span>
 
-                <h1 class="ai-hero-title">
-                    👋 Boa noite, Silvanio
+                <h1 class="hero-title">
+
+                    Centro de Inteligência SIGFA
+
                 </h1>
 
-                <p class="ai-hero-description">
-                    Como posso ajudar sua empresa hoje?
+                <p class="hero-subtitle">
+
+                    Converse com a Inteligência Corporativa da Foco Amplo, envie documentos e obtenha diagnósticos, indicadores, recomendações estratégicas e planos de ação baseados nos dados da empresa.
+
                 </p>
 
-            </div>
-
-            <div class="ai-prompt">
-
-                <textarea
-                    placeholder="Ex.: Analise meu fluxo de caixa dos últimos 90 dias..."
-                ></textarea>
-
-                <div class="ai-toolbar">
-
-                    <div class="ai-toolbar-left">
-
-                        <button>📄 PDF</button>
-
-                        <button>📊 Excel</button>
-
-                        <button>🖼 Imagem</button>
-
-                        <button>🎤 Voz</button>
-
-                    </div>
-
-                    <button class="ai-send">
-
-                        Perguntar ao SIGFA →
-
-                    </button>
-
-                </div>
-
-            </div>
+            </header>
 
         </section>
+
     `;
+
 };
 
 export default AIHero;

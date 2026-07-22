@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.kpi import KPI
-from app.schemas.kpi import KPICreate
-from app.schemas.kpi import KPIUpdate
+from backend.app.models.kpi import KPI
+from backend.app.schemas.kpi import KPICreate
+from backend.app.schemas.kpi import KPIUpdate
 
 
 class KPIService:

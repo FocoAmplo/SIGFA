@@ -1,30 +1,34 @@
+import intelligenceStore from '../../store/intelligence.store.js';
+
 const SpecialistCard = () => {
 
-    const items = [
+    const state = intelligenceStore.getState();
+
+    const indicators = [
 
         {
-            label: "Motor IA",
-            value: "Online"
+            label: "Saúde Geral",
+            value: state.dashboard?.health || 0
         },
 
         {
-            label: "Modelo de Análise",
-            value: "SIGFA Intelligence"
+            label: "Financeiro",
+            value: state.dashboard?.finance || 0
         },
 
         {
-            label: "Última Execução",
-            value: "Nenhuma análise realizada"
+            label: "Comercial",
+            value: state.dashboard?.commercial || 0
         },
 
         {
-            label: "Alertas",
-            value: "Nenhum alerta ativo"
+            label: "Produção",
+            value: state.dashboard?.production || 0
         },
 
         {
-            label: "Próxima Ação",
-            value: "Aguardar envio de dados"
+            label: "Qualidade",
+            value: state.dashboard?.quality || 0
         }
 
     ];
@@ -35,51 +39,52 @@ const SpecialistCard = () => {
 
             <span class="section-label">
 
-                CONSULTOR INTELIGENTE
+                PAINEL EXECUTIVO
 
             </span>
 
             <h2>
 
-                Motor Inteligente SIGFA
+                Indicadores da Empresa
 
             </h2>
 
-            <p class="specialist-description">
+            <div class="indicator-list">
 
-                O Consultor Inteligente monitora continuamente os dados recebidos da empresa, identifica riscos, oportunidades e gera recomendações estratégicas fundamentadas em informações reais.
+                ${indicators.map(item => `
 
-            </p>
+                    <div class="indicator-row">
 
-            <div class="specialist-list">
+                        <div class="indicator-header">
 
-                ${items.map(item => `
+                            <span>
 
-                    <div class="specialist-item">
+                                ${item.label}
 
-                        <span>
+                            </span>
 
-                            ${item.label}
+                            <strong>
 
-                        </span>
+                                ${item.value}%
 
-                        <strong>
+                            </strong>
 
-                            ${item.value}
+                        </div>
 
-                        </strong>
+                        <div class="indicator-bar">
+
+                            <div
+                                class="indicator-fill"
+                                style="width:${item.value}%">
+                            </div>
+
+                        </div>
 
                     </div>
 
                 `).join("")}
 
             </div>
-
-            <button class="specialist-button">
-
-                Abrir Consultor Inteligente
-
-            </button>
 
         </section>
 

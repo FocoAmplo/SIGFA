@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.company import Company
-from app.schemas.company import CompanyCreate
-from app.schemas.company import CompanyUpdate
+from ...models.company import Company
+from ...schemas.company import CompanyCreate
+from ...schemas.company import CompanyUpdate
 
 
 class CompanyService:

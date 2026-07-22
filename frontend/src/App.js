@@ -12,7 +12,7 @@ import { getRoute, parseRoute } from './scripts/appRouter.js';
 |--------------------------------------------------------------------------
 */
 
-const DEV_MODE = true;
+const DEV_MODE = false;
 
 const App = async () => {
 

@@ -1,9 +1,6 @@
 import AIHero from '../components/dashboard/AIHero.js';
 import DynamicWorkspace from '../components/common/DynamicWorkspace.js';
-import KPIOverview from '../components/dashboard/KPIOverview.js';
-import CompanySummary from '../components/common/CompanySummary.js';
 import SpecialistCard from '../components/panels/SpecialistCard.js';
-import SuggestionChips from '../components/common/SuggestionChips.js';
 
 const DashboardPage = async () => {
 
@@ -11,33 +8,23 @@ const DashboardPage = async () => {
 
         <section class="dashboard-page">
 
-            <div class="dashboard-main">
+            ${AIHero()}
 
-                ${AIHero()}
+            <section class="dashboard-workspace">
 
-                ${DynamicWorkspace()}
+                <div class="workspace-left">
 
-                ${KPIOverview()}
-
-            </div>
-
-            <section class="dashboard-bottom">
-
-                <div class="dashboard-company">
-
-                    ${CompanySummary()}
+                    ${DynamicWorkspace()}
 
                 </div>
 
-                <div class="dashboard-specialist">
+                <aside class="workspace-right">
 
                     ${SpecialistCard()}
 
-                </div>
+                </aside>
 
             </section>
-
-            ${SuggestionChips()}
 
         </section>
 

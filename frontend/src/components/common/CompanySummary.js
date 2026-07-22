@@ -1,88 +1,58 @@
+import intelligenceStore from '../../store/intelligence.store.js';
+
 const CompanySummary = () => {
 
-    const information = [
+    const state = intelligenceStore.getState();
 
-        {
-            label: "Empresa",
-            value: "Nenhuma empresa conectada"
-        },
+    const company = state.company?.name || "Nenhuma empresa";
 
-        {
-            label: "Plano",
-            value: "Experiência SIGFA"
-        },
+    const documents = state.documents?.length || 0;
 
-        {
-            label: "Integração",
-            value: "Aguardando conexão"
-        },
-
-        {
-            label: "Base de Dados",
-            value: "Nenhum registro recebido"
-        },
-
-        {
-            label: "Documentos",
-            value: "0 arquivos processados"
-        },
-
-        {
-            label: "Última Atualização",
-            value: "Ainda não sincronizado"
-        }
-
-    ];
+    const diagnosis = state.diagnosis
+        ? "Disponível"
+        : "Aguardando";
 
     return `
 
-        <section class="summary-card">
+        <footer class="company-status-bar">
 
-            <span class="section-label">
+            <div class="company-status-item">
 
-                EMPRESA
+                <span>Empresa</span>
 
-            </span>
-
-            <h2>
-
-                Resumo Operacional
-
-            </h2>
-
-            <p class="summary-description">
-
-                O SIGFA exibirá automaticamente as informações da empresa
-                após a conexão com a plataforma ou envio dos primeiros
-                documentos para análise.
-
-            </p>
-
-            <div class="summary-status-list">
-
-                ${information.map(item => `
-
-                    <div class="summary-status">
-
-                        <span>
-
-                            ${item.label}
-
-                        </span>
-
-                        <strong>
-
-                            ${item.value}
-
-                        </strong>
-
-                    </div>
-
-                `).join("")}
+                <strong>${company}</strong>
 
             </div>
 
-        </section>
+            <div class="company-status-item">
+
+                <span>Documentos</span>
+
+                <strong>${documents}</strong>
+
+            </div>
+
+            <div class="company-status-item">
+
+                <span>Diagnóstico</span>
+
+                <strong>${diagnosis}</strong>
+
+            </div>
+
+            <div class="company-status-item">
+
+                <span>IA</span>
+
+                <strong>
+
+                    ${state.loading ? "Analisando..." : "Online"}
+
+                </strong>
+
+            </div>
+
+        </footer>
 
     `;
 

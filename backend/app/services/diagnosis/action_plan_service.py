@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.action_plan import ActionPlan
-from app.schemas.action_plan import ActionPlanCreate
-from app.schemas.action_plan import ActionPlanUpdate
+from backend.app.models.action_plan import ActionPlan
+from backend.app.schemas.action_plan import ActionPlanCreate
+from backend.app.schemas.action_plan import ActionPlanUpdate
 
 
 class ActionPlanService:

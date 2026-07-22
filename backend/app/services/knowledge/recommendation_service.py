@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.recommendation import Recommendation
-from app.schemas.recommendation import RecommendationCreate
-from app.schemas.recommendation import RecommendationUpdate
+from backend.app.models.recommendation import Recommendation
+from backend.app.schemas.recommendation import RecommendationCreate
+from backend.app.schemas.recommendation import RecommendationUpdate
 
 
 class RecommendationService:

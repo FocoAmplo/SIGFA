@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.permission import Permission
-from app.schemas.permission import PermissionCreate
-from app.schemas.permission import PermissionUpdate
+from backend.app.models.permission import Permission
+from backend.app.schemas.permission import PermissionCreate
+from backend.app.schemas.permission import PermissionUpdate
 
 
 class PermissionService:

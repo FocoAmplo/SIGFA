@@ -1,0 +1,51 @@
+# Ambiente Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Git
+.git/
+.gitignore
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Banco local
+*.db
+*.sqlite3
+
+# Variáveis de ambiente
+.env
+
+# Cache
+.pytest_cache/
+.mypy_cache/
+
+# Node
+node_modules/
+
+# Documentação e arquivos auxiliares
+docs/
+tests/
+*.xlsx
+*.txt
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Frontend (não será publicado neste build)
+frontend/node_modules/
+frontend/dist/
+
+# Arquivos do GitHub
+.github/
+
+# Deployment local
+deployment/*.log

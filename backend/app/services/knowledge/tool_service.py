@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.tool import Tool
-from app.schemas.tool import ToolCreate
-from app.schemas.tool import ToolUpdate
+from backend.app.models.tool import Tool
+from backend.app.schemas.tool import ToolCreate
+from backend.app.schemas.tool import ToolUpdate
 
 
 class ToolService:

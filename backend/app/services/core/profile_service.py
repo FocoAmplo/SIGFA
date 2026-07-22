@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.profile import Profile
-from app.schemas.profile import ProfileCreate
-from app.schemas.profile import ProfileUpdate
+from backend.app.models.profile import Profile
+from backend.app.schemas.profile import ProfileCreate
+from backend.app.schemas.profile import ProfileUpdate
 
 
 class ProfileService:

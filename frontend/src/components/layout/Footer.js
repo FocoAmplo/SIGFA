@@ -1,7 +1,7 @@
 const Footer = () => `
 <footer class="app-footer">
 
-    <span>© 2026 SIGFA • Foco Amplo</span>
+    <span>© 2026 SIGFA BRASIL • Foco Amplo</span>
 
     <div class="footer-status">
 

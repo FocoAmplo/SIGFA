@@ -1,1 +1,33 @@
-# Python cache\n__pycache__/\n*.py[cod]\n*$py.class\n# Virtual environment\n.venv/\n# Environment variables\n.env\n# IDE metadata\n.vscode/\n
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambiente virtual
+.venv/
+venv/
+
+# Variáveis sensíveis
+.env
+
+# Logs
+*.log
+
+# Banco local
+*.db
+*.sqlite3
+
+# Cache
+.pytest_cache/
+.mypy_cache/
+
+# VS Code
+.vscode/
+
+# Node
+node_modules/
+frontend/dist/
+
+# Sistema
+.DS_Store
+Thumbs.db

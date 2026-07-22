@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.ai_recommendation import AIRecommendation
-from app.schemas.ai_recommendation import AIRecommendationCreate
-from app.schemas.ai_recommendation import AIRecommendationUpdate
+from backend.app.models.ai_recommendation import AIRecommendation
+from backend.app.schemas.ai_recommendation import AIRecommendationCreate
+from backend.app.schemas.ai_recommendation import AIRecommendationUpdate
 
 
 class AIRecommendationService:

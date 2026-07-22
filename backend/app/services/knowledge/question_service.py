@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.question import Question
-from app.schemas.question import QuestionCreate
-from app.schemas.question import QuestionUpdate
+from backend.app.models.question import Question
+from backend.app.schemas.question import QuestionCreate
+from backend.app.schemas.question import QuestionUpdate
 
 
 class QuestionService:

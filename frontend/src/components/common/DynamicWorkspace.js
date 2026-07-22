@@ -1,185 +1,152 @@
+import intelligenceStore from '../../store/intelligence.store.js';
+
 const DynamicWorkspace = () => {
+
+    const state = intelligenceStore.getState();
+
+    const messages = state.conversation || [];
 
     return `
 
         <section class="dynamic-workspace">
 
-            <div class="workspace-header">
-
-                <div>
-
-                    <span>
-
-                        CENTRO DE OPERAÇÕES INTELIGENTE
-
-                    </span>
-
-                    <h2>
-
-                        Consultor Inteligente SIGFA
-
-                    </h2>
-
-                </div>
-
-                <div class="workspace-status">
-
-                    <span class="status-online"></span>
-
-                    IA Online
-
-                </div>
-
-            </div>
-
             <div class="workspace-conversation">
 
-                <div class="conversation-message ai">
+                ${messages.length
 
-                    <div class="conversation-avatar">
+            ? messages.map(message => `
 
-                        IA
+                        <article class="conversation-message ${message.role}">
 
-                    </div>
+                            <div class="message-header">
 
-                    <div class="conversation-content">
+                                <strong>
 
-                        <strong>
+                                    ${message.role === 'assistant'
+                    ? 'SIGFA IA'
+                    : 'Você'}
 
-                            Bem-vindo ao Centro de Inteligência.
+                                </strong>
 
-                        </strong>
+                            </div>
+
+                            <div class="message-body">
+
+                                ${message.content}
+
+                            </div>
+
+                        </article>
+
+                    `).join("")
+
+            :
+
+            `
+
+                    <div class="conversation-placeholder">
+
+                        <h3>
+
+                            Centro de Inteligência pronto.
+
+                        </h3>
 
                         <p>
 
-                            Ainda não existem documentos enviados para análise.
-
-                        </p>
-
-                        <p>
-
-                            Assim que sua empresa enviar indicadores, planilhas, documentos ou relatórios, iniciarei automaticamente a leitura das informações.
+                            Inicie uma conversa ou envie documentos para começar uma análise estratégica.
 
                         </p>
 
                     </div>
 
-                </div>
+                    `
 
-                <div class="conversation-message system">
-
-                    <div class="conversation-content">
-
-                        <strong>
-
-                            Próximas análises disponíveis
-
-                        </strong>
-
-                        <ul>
-
-                            <li>Diagnóstico Financeiro</li>
-
-                            <li>Diagnóstico Comercial</li>
-
-                            <li>Diagnóstico Produção</li>
-
-                            <li>Diagnóstico Qualidade</li>
-
-                            <li>Plano Estratégico</li>
-
-                            <li>Plano de Ação</li>
-
-                        </ul>
-
-                    </div>
-
-                </div>
-                            <div class="workspace-processing">
-
-                <h3>
-
-                    Estado do Centro de Inteligência
-
-                </h3>
-
-                <div class="processing-list">
-
-                    <div class="processing-item completed">
-
-                        <span>●</span>
-
-                        Plataforma conectada.
-
-                    </div>
-
-                    <div class="processing-item completed">
-
-                        <span>●</span>
-
-                        Consultor Inteligente disponível.
-
-                    </div>
-
-                    <div class="processing-item waiting">
-
-                        <span>●</span>
-
-                        Aguardando documentos da empresa.
-
-                    </div>
-
-                    <div class="processing-item waiting">
-
-                        <span>●</span>
-
-                        Aguardando indicadores para análise.
-
-                    </div>
-
-                    <div class="processing-item waiting">
-
-                        <span>●</span>
-
-                        Diagnóstico Estratégico pendente.
-
-                    </div>
-
-                </div>
+        }
 
             </div>
 
-            <div class="workspace-empty-state">
+            ${state.loading
 
-                <div class="workspace-empty-icon">
+            ?
 
-                    🧠
+            `
+
+                <div class="workspace-loading">
+
+                    <span class="loading-dot"></span>
+
+                    A IA está analisando as informações...
 
                 </div>
 
-                <h3>
+                `
 
-                    Nenhuma análise em andamento
+            :
 
-                </h3>
+            ''
 
-                <p>
+        }
 
-                    Assim que sua empresa enviar documentos ou indicadores,
-                    o SIGFA iniciará automaticamente a leitura dos dados,
-                    identificará riscos, oportunidades e apresentará
-                    recomendações estratégicas fundamentadas nas informações
-                    recebidas.
+            <footer class="workspace-input">
 
-                </p>
+                <textarea
 
-                <button class="workspace-start">
+                    id="ai-prompt"
 
-                    Iniciar Centro de Inteligência
+                    rows="1"
 
-                </button>
+                    placeholder="Pergunte ao Centro de Inteligência..."
 
-            </div>
+                ></textarea>
+
+                <div class="workspace-toolbar">
+
+                    <input
+
+                        id="ai-files"
+
+                        type="file"
+
+                        hidden
+
+                        multiple
+
+                        accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.xml,.png,.jpg,.jpeg,.gif,.webp,.txt"
+
+                    />
+
+                    <button
+
+                        id="ai-upload-button"
+
+                        class="workspace-upload"
+
+                        type="button"
+
+                        title="Anexar documentos">
+
+                        📎
+
+                    </button>
+
+                    <button
+
+                        id="ai-send"
+
+                        class="workspace-send"
+
+                        type="button"
+
+                        title="Enviar">
+
+                        ➜
+
+                    </button>
+
+                </div>
+
+            </footer>
 
         </section>
 

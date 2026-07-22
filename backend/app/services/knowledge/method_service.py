@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.method import Method
-from app.schemas.method import MethodCreate
-from app.schemas.method import MethodUpdate
+from backend.app.models.method import Method
+from backend.app.schemas.method import MethodCreate
+from backend.app.schemas.method import MethodUpdate
 
 
 class MethodService:

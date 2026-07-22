@@ -10,7 +10,7 @@ class LoginAudit(Base):
     __tablename__ = "login_audits"
 
     id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    user_id = Column(Integer, ForeignKey("security.users.id"), nullable=True)
     email = Column(String(180), nullable=False)
     success = Column(Boolean, nullable=False)
     reason = Column(String(255), nullable=True)

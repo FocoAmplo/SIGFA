@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.relationship import Relationship
-from app.schemas.relationship import RelationshipCreate
-from app.schemas.relationship import RelationshipUpdate
+from backend.app.models.relationship import Relationship
+from backend.app.schemas.relationship import RelationshipCreate
+from backend.app.schemas.relationship import RelationshipUpdate
 
 
 class RelationshipService:

@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.diagnosis import Diagnosis
-from app.schemas.diagnosis import DiagnosisCreate
-from app.schemas.diagnosis import DiagnosisUpdate
+from backend.app.models.diagnosis import Diagnosis
+from backend.app.schemas.diagnosis import DiagnosisCreate
+from backend.app.schemas.diagnosis import DiagnosisUpdate
 
 
 class DiagnosisService:

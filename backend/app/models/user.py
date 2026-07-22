@@ -90,3 +90,14 @@ class User(Base):
         "Profile",
         back_populates="users",
     )
+
+    refresh_tokens = relationship(
+        "RefreshToken",
+        back_populates="user",
+        cascade="all, delete-orphan",
+    )
+
+    login_audits = relationship(
+        "LoginAudit",
+        back_populates="user",
+    )

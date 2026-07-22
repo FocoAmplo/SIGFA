@@ -1,19 +1,10 @@
 const Topbar = ({ title }) => {
 
-  return `
+    return `
 
         <header class="app-topbar">
 
             <div class="topbar-brand">
-
-                <div class="topbar-logo">
-
-                    <img
-                        src="/src/assets/images/logo-focoamplo.png"
-                        alt="SIGFA"
-                    />
-
-                </div>
 
                 <div class="topbar-title-group">
 
@@ -33,25 +24,15 @@ const Topbar = ({ title }) => {
 
             </div>
 
-            <div class="topbar-search">
-
-                <input
-                    type="search"
-                    placeholder="Pesquisar módulos, indicadores, empresas ou documentos..."
-                />
-
-                <button
-                    class="topbar-search-btn"
-                    type="button"
-                >
-
-                    Buscar
-
-                </button>
-
-            </div>
-
             <div class="topbar-actions">
+
+                <div class="topbar-status">
+
+                    <span class="status-dot"></span>
+
+                    IA Online
+
+                </div>
 
                 <button
                     class="topbar-action"
@@ -59,35 +40,27 @@ const Topbar = ({ title }) => {
                     title="Notificações"
                 >
 
-                    N
+                    🔔
 
                 </button>
 
-                <button
-                    class="topbar-action"
-                    type="button"
-                    title="Configurações"
-                >
+                <div class="topbar-user">
 
-                    C
+                    <div class="topbar-avatar">
 
-                </button>
+                        SL
 
-            </div>
+                    </div>
 
-            <div class="topbar-user">
+                    <div class="topbar-user-info">
 
-                <span class="topbar-user-name">
+                        <strong>Silvanio Lopes</strong>
 
-                    Administrador
+                        <span>Gestor Master</span>
 
-                </span>
+                    </div>
 
-                <span class="topbar-user-badge">
-
-                    Enterprise
-
-                </span>
+                </div>
 
             </div>
 

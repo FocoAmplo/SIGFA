@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.evidence import Evidence
-from app.schemas.evidence import EvidenceCreate
-from app.schemas.evidence import EvidenceUpdate
+from backend.app.models.evidence import Evidence
+from backend.app.schemas.evidence import EvidenceCreate
+from backend.app.schemas.evidence import EvidenceUpdate
 
 
 class EvidenceService:

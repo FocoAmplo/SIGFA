@@ -1,48 +1,72 @@
+import intelligenceStore from '../../store/intelligence.store.js';
+
+const DEFAULT_INDICATORS = [
+
+    {
+        title: "Receita",
+        status: "Aguardando dados"
+    },
+
+    {
+        title: "Lucro",
+        status: "Aguardando dados"
+    },
+
+    {
+        title: "Fluxo de Caixa",
+        status: "Aguardando dados"
+    },
+
+    {
+        title: "Financeiro",
+        status: "Nenhum documento"
+    },
+
+    {
+        title: "Comercial",
+        status: "Sem análise"
+    },
+
+    {
+        title: "Produção",
+        status: "Sem indicadores"
+    },
+
+    {
+        title: "Qualidade",
+        status: "Sem análise"
+    },
+
+    {
+        title: "OEE",
+        status: "Não calculado"
+    }
+
+];
+
 const KPIOverview = () => {
 
-    const indicators = [
+    const state = intelligenceStore.getState();
 
-        {
-            title: "Receita",
-            status: "Aguardando dados"
-        },
+    const backendIndicators = state.indicators || [];
 
-        {
-            title: "Lucro",
-            status: "Aguardando dados"
-        },
+    const indicators = DEFAULT_INDICATORS.map(item => {
 
-        {
-            title: "Fluxo de Caixa",
-            status: "Aguardando dados"
-        },
+        const backendItem = backendIndicators.find(indicator =>
+            indicator.name?.toLowerCase() === item.title.toLowerCase()
+        );
 
-        {
-            title: "Financeiro",
-            status: "Nenhum documento"
-        },
+        return {
 
-        {
-            title: "Comercial",
-            status: "Sem análise"
-        },
+            title: item.title,
 
-        {
-            title: "Produção",
-            status: "Sem indicadores"
-        },
+            status: backendItem
+                ? `${backendItem.value}${backendItem.trend ? ` • ${backendItem.trend}` : ''}`
+                : item.status
 
-        {
-            title: "Qualidade",
-            status: "Sem análise"
-        },
+        };
 
-        {
-            title: "OEE",
-            status: "Não calculado"
-        }
-
-    ];
+    });
 
     return `
 

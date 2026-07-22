@@ -29,9 +29,14 @@ from .ai_memory import AIMemory
 from .ai_prompt import AIPrompt
 from .ai_rule import AIRule
 from .ai_recommendation import AIRecommendation
+from .action_plan import ActionPlan
+from .attachment import Attachment
+from .history import History
 from .audit_log import AuditLog
 from .api_log import APILog
 from .ai_log import AILog
+from .refresh_token import RefreshToken
+from .login_audit import LoginAudit
 from .notification import Notification
 
 __all__ = [
@@ -62,9 +67,14 @@ __all__ = [
     "AIPrompt",
     "AIRule",
     "AIRecommendation",
+    "ActionPlan",
+    "Attachment",
+    "History",
     "AuditLog",
     "APILog",
     "AILog",
+    "RefreshToken",
+    "LoginAudit",
     "Notification",
 
 ]

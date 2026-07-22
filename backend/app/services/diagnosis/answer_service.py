@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.models.answer import Answer
-from app.schemas.answer import AnswerCreate
-from app.schemas.answer import AnswerUpdate
+from backend.app.models.answer import Answer
+from backend.app.schemas.answer import AnswerCreate
+from backend.app.schemas.answer import AnswerUpdate
 
 
 class AnswerService:
