@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 
 from sqlalchemy import insert
@@ -39,7 +40,7 @@ from ..models.login_audit import LoginAudit
 from ..models.lead import Lead
 
 ADMIN_EMAIL = "admin@sigfa.com.br"
-ADMIN_PASSWORD = "Admin123!"
+ADMIN_PASSWORD_ENV = "SIGFA_ADMIN_PASSWORD"
 COMPANY_NAME = "SIGFA Corporativo"
 ADMIN_PROFILE = "Administrador"
 
@@ -95,10 +96,16 @@ def create_database() -> None:
 
 
 def seed_initial_data() -> None:
+        admin_password = os.getenv(ADMIN_PASSWORD_ENV)
+
+    if not admin_password:
+        raise RuntimeError(
+            f"{ADMIN_PASSWORD_ENV} não encontrada."
+        )
+
     db: Session = SessionLocal()
     try:
         connection = db.connection()
-
         company = connection.execute(
             select(Company.__table__.c.id).where(
                 Company.__table__.c.corporate_name == COMPANY_NAME
@@ -174,7 +181,7 @@ def seed_initial_data() -> None:
                 insert(User.__table__).values(
                     name="Administrador SIGFA",
                     email=ADMIN_EMAIL,
-                    password_hash=hash_password(ADMIN_PASSWORD),
+                    password_hash=hash_password(admin_password),
                     company_id=company_id,
                     profile_id=profile_id,
                     active=True,
