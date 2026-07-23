@@ -96,7 +96,7 @@ def create_database() -> None:
 
 
 def seed_initial_data() -> None:
-        admin_password = os.getenv(ADMIN_PASSWORD_ENV)
+    admin_password = os.getenv(ADMIN_PASSWORD_ENV)
 
     if not admin_password:
         raise RuntimeError(
@@ -106,6 +106,7 @@ def seed_initial_data() -> None:
     db: Session = SessionLocal()
     try:
         connection = db.connection()
+
         company = connection.execute(
             select(Company.__table__.c.id).where(
                 Company.__table__.c.corporate_name == COMPANY_NAME
