@@ -36,6 +36,7 @@ from ..models.chart import Chart
 from ..models.filter import Filter
 from ..models.refresh_token import RefreshToken
 from ..models.login_audit import LoginAudit
+from ..models.lead import Lead
 
 ADMIN_EMAIL = "admin@sigfa.com.br"
 ADMIN_PASSWORD = "Admin123!"
@@ -79,6 +80,7 @@ CORE_TABLES = [
     Filter.__table__,
     RefreshToken.__table__,
     LoginAudit.__table__,
+    Lead.__table__,
 ]
 
 

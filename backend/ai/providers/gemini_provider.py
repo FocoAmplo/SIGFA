@@ -23,7 +23,7 @@ class GeminiProvider:
 
         self.model = os.getenv(
             "MODEL_NAME",
-            "gemini-2.5-pro"
+            "gemini-3.6-flash"
         )
 
         self.client = genai.Client(
